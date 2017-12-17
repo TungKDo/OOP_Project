@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,23 +45,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleField\Hand.cs" />
     <Compile Include="Cards\Creatures\Creature.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\ChillWindYeti.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\Demon.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\EmperorCobra.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\SwampOoze.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\ManaWyrm.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\Tiger.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\WaterElemental.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\Ogre.cs" />
     <Compile Include="Cards\Spells\Spell.cs" />
     <Compile Include="Contracts\ICard.cs" />
     <Compile Include="Contracts\ICreature.cs" />
-    <Compile Include="Contracts\IHero.cs" />
     <Compile Include="Contracts\ISpell.cs" />
     <Compile Include="Deck\Deck.cs" />
     <Compile Include="Deck\DeckCollection.cs" />
     <Compile Include="GameEngine.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="BattleField\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

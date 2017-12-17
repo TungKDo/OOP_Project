@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
+namespace HearthStone_Rip_Off.Cards.Creatures
 {
-    class ManaWyrm : Creature
+    class Ogre : Creature
     {
-
-        public ManaWyrm(string cardName, uint manaCost, uint attackPoints, int healthPoints) : base("Manawyrm", 1, 1, 3)
+        public Ogre(string cardName, uint manaCost, uint attackPoints, int healthPoints) : base("Ogre", 6, 6, 7)
         {
         }
 

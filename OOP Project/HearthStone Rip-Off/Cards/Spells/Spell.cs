@@ -14,5 +14,7 @@ namespace HearthStone_Rip_Off.Cards.Spells
 
 
         public uint ManaCost => 0;
+
+        public string CardName => throw new NotImplementedException();
     }
 }

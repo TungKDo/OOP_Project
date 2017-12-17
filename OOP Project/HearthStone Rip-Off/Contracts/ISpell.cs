@@ -8,6 +8,6 @@ namespace HearthStone_Rip_Off.Contracts
 {
     class ISpell
     {
-
+        uint damage { get; }
     }
 }
