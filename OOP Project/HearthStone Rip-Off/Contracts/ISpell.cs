@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Contracts
 {
-    class ISpell
+    public interface ISpell: ICard
     {
-        uint damage { get; }
+        uint Damage { get; }
     }
 }

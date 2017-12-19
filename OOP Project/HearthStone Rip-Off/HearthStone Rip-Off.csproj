@@ -47,14 +47,22 @@
   <ItemGroup>
     <Compile Include="BattleField\Hand.cs" />
     <Compile Include="Cards\Creatures\Creature.cs" />
+    <Compile Include="Cards\Creatures\CreatureType.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\ChillWindYeti.cs" />
-    <Compile Include="Cards\Creatures\List of Creatures\Demon.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\EmperorCobra.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\SwampOoze.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\ManaWyrm.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\Tiger.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\WaterElemental.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\Ogre.cs" />
+    <Compile Include="Cards\Spells\List of Spells\FireBall.cs" />
+    <Compile Include="Cards\Spells\List of Spells\FireBlast.cs" />
+    <Compile Include="Cards\Spells\List of Spells\FrostBolt.cs" />
+    <Compile Include="Cards\Spells\List of Spells\HolySmite.cs" />
+    <Compile Include="Cards\Spells\List of Spells\LightningBolt.cs" />
+    <Compile Include="Cards\Spells\List of Spells\MeteorShower.cs" />
+    <Compile Include="Cards\Spells\List of Spells\MoonFire.cs" />
+    <Compile Include="Cards\Spells\List of Spells\ShadowBolt.cs" />
     <Compile Include="Cards\Spells\Spell.cs" />
     <Compile Include="Contracts\ICard.cs" />
     <Compile Include="Contracts\ICreature.cs" />

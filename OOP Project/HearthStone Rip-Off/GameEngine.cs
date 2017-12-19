@@ -1,6 +1,7 @@
 ﻿using HearthStone_Rip_Off.BattleField;
 using HearthStone_Rip_Off.Cards.Creatures;
 using HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures;
+using HearthStone_Rip_Off.Cards.Spells.List_of_Spells;
 using HearthStone_Rip_Off.Deck;
 using System;
 using PlayerDeck = HearthStone_Rip_Off.Deck.Deck;
@@ -23,6 +24,7 @@ namespace HearthStone_Rip_Off
             Console.WriteLine("Welcome to BattleArena");
             Console.WriteLine("Choose an item from the menu below");
             Console.WriteLine("1. New Game");
+            Console.WriteLine("2. Deck Collection");
             Console.WriteLine("4. Exit");
 
             string input = Console.ReadLine();
@@ -54,12 +56,15 @@ namespace HearthStone_Rip_Off
 
         private void StartNewGame()
         {
+
+
+
             PlayerDeck player1Deck = new PlayerDeck();
             PlayerDeck player2Deck = new PlayerDeck();
 
+            player1Deck.
 
-
-            player1Deck.MyDeck.Add(new ChillWindYeti("ChillWindYeti", 4, 4, 5));
+            player1Deck.MyDeck.Add(new ChillWindYeti());
             player1Deck.MyDeck.Add(new Demon("Demon", 7, 7, 7));
             player1Deck.MyDeck.Add(new EmperorCobra("EmperorCobra", 3, 3, 3));
             player1Deck.MyDeck.Add(new ManaWyrm("Manawyrm", 1, 1, 3));
@@ -79,19 +84,10 @@ namespace HearthStone_Rip_Off
             Player player1 = new Player(15 ,player1Deck,player1Hand);
             Player player2 = new Player(15 ,player2Deck, player1Hand);
 
-            for (int i = 0; i < 3; i++)
-            {
 
-                var currentCard = player1Deck.MyDeck[0];                
-                player1Hand.MyHand.Add(currentCard);
-                player1Deck.MyDeck.Remove(currentCard);
-            }
-            for (int i = 0; i < 3; i++)
-            {
-                var currentCard = player2Deck.MyDeck[0];                
-                player2Hand.MyHand.Add(currentCard);
-                player2Deck.MyDeck.Remove(currentCard);
-            }
+            GameInitialization();
+
+            
 
             bool isFirstPlayerMove = true;
             Player winner = null;
@@ -117,6 +113,23 @@ namespace HearthStone_Rip_Off
             }
 
             Console.WriteLine("The winner is: {0}", winner);
+        }
+
+        private void GameInitialization(PlayerDeck player1Deck, Player, PlayerDeck player2Deck)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+
+                var currentCard = player1Deck.MyDeck[0];
+                player1Hand.MyHand.Add(currentCard);
+                player1Deck.MyDeck.Remove(currentCard);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                var currentCard = player2Deck.MyDeck[0];
+                player2Hand.MyHand.Add(currentCard);
+                player2Deck.MyDeck.Remove(currentCard);
+            }
         }
 
         private void Exit()

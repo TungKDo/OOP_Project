@@ -9,13 +9,20 @@ namespace HearthStone_Rip_Off.Cards.Creatures
 {
     public abstract class Creature : ICard, ICreature
     {
+        private string cardName;
         private uint manaCost;
         private uint attackPoints;
         private int healthPoints;
-        private string cardName;
+        private CreatureType type;
 
-        public Creature(string cardName,uint manaCost, uint attackPoints, int healthPoints )
+
+        public Creature(string cardName,uint manaCost, uint attackPoints, int healthPoints, CreatureType type = CreatureType.Neutral )
         {
+            this.CardName = cardName;
+            this.ManaCost = manaCost;
+            this.AttackPoints = attackPoints;
+            this.HealthPoints = healthPoints;
+            this.Type = type;
             
         }
 
@@ -69,6 +76,18 @@ namespace HearthStone_Rip_Off.Cards.Creatures
                 this.cardName = value;
             }
 
+        }
+
+        public CreatureType Type
+        {
+            get
+            {
+                return this.type;
+            }
+            set
+            {
+                this.type = value;
+            }
         }
 
         protected abstract string Greeting();

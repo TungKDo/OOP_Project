@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Deck
 {
-    public class Deck 
+    public class Deck : List<ICard>
     {
+        
 
         private IList<ICard> myDeck;
+
+
 
         public Deck()
         {
