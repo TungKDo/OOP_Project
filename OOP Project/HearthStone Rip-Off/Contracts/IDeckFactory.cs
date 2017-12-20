@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Contracts
 {
-    public interface ICard
+    interface IDeckFactory
     {
-        string CardName { get; }
-        uint ManaCost { get; }
+        List<ICard> CreateNewDeck();
     }
 }

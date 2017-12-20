@@ -4,25 +4,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using HearthStone_Rip_Off.Contracts;
 
 namespace HearthStone_Rip_Off.Deck
 {
     public class DeckCollection
     {
-        private static Random random;
-
+        private Random random;
+        private Deck deckOfAllcards;
         private List<Deck> myDecks;
-
-        static DeckCollection()
-        {
-            random = new Random();
-        }
-
+        
         public DeckCollection()
         {
-            this.myDecks = new List<Deck>();
+            InitializeCreaturesAndSpells(deckOfAllcards);
         }
+
+        //public List<Deck> MyDeck
+       
 
         internal Deck GetRandomDeck()
         {
@@ -30,5 +28,7 @@ namespace HearthStone_Rip_Off.Deck
 
             return myDecks[randomIndex];
         }
+
+        
     }
 }

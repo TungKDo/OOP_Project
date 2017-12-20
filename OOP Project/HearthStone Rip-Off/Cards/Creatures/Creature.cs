@@ -15,15 +15,14 @@ namespace HearthStone_Rip_Off.Cards.Creatures
         private int healthPoints;
         private CreatureType type;
 
-
-        public Creature(string cardName,uint manaCost, uint attackPoints, int healthPoints, CreatureType type = CreatureType.Neutral )
+        //string cardName,uint manaCost, uint attackPoints, int healthPoints, CreatureType type = CreatureType.Neutral
+        public Creature()
         {
+            this.Type = type;
             this.CardName = cardName;
             this.ManaCost = manaCost;
             this.AttackPoints = attackPoints;
             this.HealthPoints = healthPoints;
-            this.Type = type;
-            
         }
 
         public uint ManaCost
@@ -32,7 +31,7 @@ namespace HearthStone_Rip_Off.Cards.Creatures
             {
                 return this.manaCost;
             }
-            private set
+            protected set
             {
                 this.manaCost = value;
             }
@@ -45,7 +44,7 @@ namespace HearthStone_Rip_Off.Cards.Creatures
             {
                 return this.attackPoints;
             }
-            private set
+            protected set
             {
                 this.attackPoints = value;
             }
@@ -58,7 +57,7 @@ namespace HearthStone_Rip_Off.Cards.Creatures
             {
                 return this.healthPoints;
             }
-            private set
+            protected set
             {
                 this.healthPoints = value;
             }
@@ -71,7 +70,7 @@ namespace HearthStone_Rip_Off.Cards.Creatures
             {
                 return this.cardName;
             }
-            private set
+            protected set
             {
                 this.cardName = value;
             }

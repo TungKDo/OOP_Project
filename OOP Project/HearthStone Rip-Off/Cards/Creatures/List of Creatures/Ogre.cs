@@ -8,7 +8,7 @@ namespace HearthStone_Rip_Off.Cards.Creatures
 {
     class Ogre : Creature
     {
-        public Ogre(string cardName, uint manaCost, uint attackPoints, int healthPoints) : base("Ogre", 6, 6, 7)
+        public Ogre(string cardName, uint manaCost, uint attackPoints, int healthPoints)// : base("Ogre", 6, 6, 7)
         {
         }
 

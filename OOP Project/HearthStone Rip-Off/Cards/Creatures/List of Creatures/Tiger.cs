@@ -8,7 +8,7 @@ namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
 {
     class Tiger : Creature
     {
-        public Tiger(string cardName, uint manaCost, uint attackPoints, int healthPoints) : base("Tiger", 5, 5, 5)
+        public Tiger(string cardName, uint manaCost, uint attackPoints, int healthPoints)// : base("Tiger", 5, 5, 5)
         {
         }
 

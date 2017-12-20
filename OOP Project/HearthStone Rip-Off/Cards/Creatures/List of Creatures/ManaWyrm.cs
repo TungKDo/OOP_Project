@@ -9,7 +9,7 @@ namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
     class ManaWyrm : Creature
     {
 
-        public ManaWyrm(string cardName, uint manaCost, uint attackPoints, int healthPoints) : base("Manawyrm", 1, 1, 3)
+        public ManaWyrm(string cardName, uint manaCost, uint attackPoints, int healthPoints) //: base("Manawyrm", 1, 1, 3)
         {
         }
 

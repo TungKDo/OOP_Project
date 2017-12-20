@@ -11,7 +11,6 @@ namespace HearthStone_Rip_Off.Cards.Creatures
         Neutral,
         Elemental,
         Demon,
-        Beast,
-
+        Beast
     }
 }

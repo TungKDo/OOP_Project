@@ -8,7 +8,7 @@ namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
 {
     class WaterElemental : Creature
     {
-        public WaterElemental(string cardName, uint manaCost, uint attackPoints, int healthPoints) : base("WaterElemental", 4, 3, 6)
+        public WaterElemental(string cardName, uint manaCost, uint attackPoints, int healthPoints) //: base("WaterElemental", 4, 3, 6)
         {
         }
 
