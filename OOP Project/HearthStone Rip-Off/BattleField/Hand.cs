@@ -15,12 +15,12 @@ namespace HearthStone_Rip_Off.BattleField
         {
             this.MyHand = new List<ICard>();
         }
-        
+
         public void PrintHand()
         {
             foreach (var card in myHand)
             {
-                Console.WriteLine(String.Join(",", card.CardName));
+                //Console.WriteLine(String.Join(",", card.CardName));
             }
         }
 

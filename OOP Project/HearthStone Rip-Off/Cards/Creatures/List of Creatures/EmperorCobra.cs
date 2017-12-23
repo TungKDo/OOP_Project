@@ -24,9 +24,14 @@ namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
             base.HealthPoints = healthPoints;
         }
 
-        protected override string Greeting()
+        public override string Greeting()
         {
-            throw new NotImplementedException();
+            StringBuilder str = new StringBuilder();
+            str.AppendLine(base.Greeting());
+
+            //TODO append greeting of the creature
+
+            return str.ToString();
         }
     }
 }

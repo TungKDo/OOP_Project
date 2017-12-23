@@ -12,7 +12,7 @@ namespace HearthStone_Rip_Off.Cards.Creatures
         {
         }
 
-        protected override string Greeting()
+        public override string Greeting()
         {
             throw new NotImplementedException();
         }

@@ -9,70 +9,71 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Deck
 {
-    public class Deck<ICard> : IEnumerable
+    public class Deck //: IEnumerable
     {
-        const int DefaultCapacity = 4096;
+        private IList<ICard> cards;
 
-        private ICard[] cards;
-        private int count = 0;
-
-
-        public Deck(int capacity)
+        public Deck()
         {
-            cards = new ICard[capacity];
+            this.cards = new List<ICard>();
         }
 
-        public Deck() : this(DefaultCapacity)
-        {
-        }
-
-        public int Count
+        public IList<ICard> Cards
         {
             get
             {
-                return this.count;
+                return new List<ICard>(this.cards);
             }
-        }
-
-        public void Add(ICard element)
-        {
-            if (count >= cards.Length)
+            set //protected?
             {
-                throw new IndexOutOfRangeException(String.Format(
-                    "The list capacity of {0} was exceeded.", cards.Length));
+                this.cards = value;
             }
-            this.cards[count] = element;
-            count++;
         }
 
-        public ICard this[int index]
+        protected void Add(ICard card)
         {
-            get
+            CheckIfCardIsNull(card);
+            this.cards.Add(card);
+        }
+
+        protected void Remove(ICard card)
+        {
+            CheckIfCardIsNull(card);
+            this.cards.Remove(card);
+        }
+
+        public void Shuffle()
+        {
+            IList<ICard> shuffledDeck = new List<ICard>();
+
+            Random rnd = new Random();
+
+            while (this.cards.Count > 0)
             {
-                if (index >= count)
-                {
-                    throw new IndexOutOfRangeException(String.Format(
-                        "Invalid index: {0}.", index));
-                }
-                ICard result = cards[index];
-                return result;
+                int r = rnd.Next(0, this.cards.Count);
+                shuffledDeck.Add(this.cards[r]);
+                this.cards.Remove(this.cards[r]);
             }
+            this.cards = shuffledDeck;
         }
 
-
-        public static void InitializeCreaturesAndSpells(Deck<ICard> deck)
+        public void InitializeCreaturesAndSpells(Deck deck)
         {
-            deck = new Deck<ICard>
+            deck.Cards = new List<ICard>
             {
                 new ChillWindYeti(),
                 new EmperorCobra()
             };
-        }
 
-        public IEnumerator GetEnumerator()
+            Shuffle();
+        }
+        private void CheckIfCardIsNull(ICard card)
         {
-            throw new NotImplementedException();
+            if (card == null)
+            {
+                throw new ArgumentNullException("The card cannot be null.");
+            }
         }
     }
-
 }
+

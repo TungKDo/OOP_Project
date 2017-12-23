@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattleField\Hand.cs" />
+    <Compile Include="Cards\Card.cs" />
     <Compile Include="Cards\Creatures\Creature.cs" />
     <Compile Include="Cards\Creatures\CreatureType.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\ChillWindYeti.cs" />

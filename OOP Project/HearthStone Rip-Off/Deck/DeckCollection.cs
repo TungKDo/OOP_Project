@@ -8,27 +8,49 @@ using HearthStone_Rip_Off.Contracts;
 
 namespace HearthStone_Rip_Off.Deck
 {
-    public class DeckCollection
+    public class DeckCollection 
     {
+        private const int countOfDecks = 3;
+
         private Random random;
-        private Deck deckOfAllcards;
-        private List<Deck> myDecks;
-        
+        private Deck deck;
+        private IList<Deck> allDecks;
+
         public DeckCollection()
         {
-            InitializeCreaturesAndSpells(deckOfAllcards);
+            this.deck = new Deck();
+            this.deck.InitializeCreaturesAndSpells(deck);
         }
 
-        //public List<Deck> MyDeck
-       
-
-        internal Deck GetRandomDeck()
+        public Deck GetRandomDeck()
         {
-            int randomIndex = random.Next(0, myDecks.Count);
+            CreateDecks();
 
-            return myDecks[randomIndex];
+            int randomIndex = random.Next(0, allDecks.Count);
+
+            return allDecks[randomIndex];
         }
 
-        
+        private void CreateDecks()
+        {
+            this.allDecks = new List<Deck>();
+
+            PopulateWithDecks();
+        }
+
+        private void PopulateWithDecks()
+        {
+            Deck newDeck = new Deck();
+
+            int countOfAllCards = deck.Cards.Count;
+
+            int portionToTake = countOfAllCards % countOfDecks;
+
+            for (int i = 0; i < countOfAllCards; i += portionToTake)
+            {
+                newDeck.Cards = deck.Cards.Skip(i).Take(portionToTake).ToList();
+                this.allDecks.Add(newDeck); //yield
+            }
+        }
     }
 }

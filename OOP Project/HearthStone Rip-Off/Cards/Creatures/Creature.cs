@@ -7,37 +7,12 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Cards.Creatures
 {
-    public abstract class Creature : ICard, ICreature
+    public class Creature : Card, ICard, ICreature
     {
-        private string cardName;
-        private uint manaCost;
         private uint attackPoints;
         private int healthPoints;
         private CreatureType type;
-
-        //string cardName,uint manaCost, uint attackPoints, int healthPoints, CreatureType type = CreatureType.Neutral
-        public Creature()
-        {
-            this.Type = type;
-            this.CardName = cardName;
-            this.ManaCost = manaCost;
-            this.AttackPoints = attackPoints;
-            this.HealthPoints = healthPoints;
-        }
-
-        public uint ManaCost
-        {
-            get
-            {
-                return this.manaCost;
-            }
-            protected set
-            {
-                this.manaCost = value;
-            }
-
-        }
-
+        
         public uint AttackPoints
         {
             get
@@ -63,19 +38,7 @@ namespace HearthStone_Rip_Off.Cards.Creatures
             }
 
         }
-
-        public string CardName
-        {
-            get
-            {
-                return this.cardName;
-            }
-            protected set
-            {
-                this.cardName = value;
-            }
-
-        }
+        
 
         public CreatureType Type
         {
@@ -89,7 +52,15 @@ namespace HearthStone_Rip_Off.Cards.Creatures
             }
         }
 
-        protected abstract string Greeting();
+        public override string Greeting()
+        {
+            StringBuilder str = new StringBuilder();
+
+            str.AppendFormat("Name: {0}, Mana cost: {1}, Attack points: {2}, Health points: {3}", 
+                base.CardName, base.ManaCost, this.attackPoints, this.healthPoints);
+
+            return str.ToString();
+        }
 
     }
 }

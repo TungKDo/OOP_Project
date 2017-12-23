@@ -7,55 +7,28 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Cards.Spells
 {
-    public abstract class Spell : ICard, ISpell
+    public abstract class Spell : Card, ICard, ISpell
     {
-        private string cardName;
         private uint damage;
-        private uint manaCost;
 
-        public Spell(string cardName, uint manaCost, uint damage )
+        public Spell(string cardName, uint manaCost, uint damage)
         {
-            this.CardName = cardName;
-            this.ManaCost = manaCost;
+            base.CardName = cardName;
+            base.ManaCost = manaCost;
             this.Damage = damage;
         }
-        
-        public string CardName
-        {
-            get
-            {
-                return this.cardName;
-            }
-            private set
-            {
-                this.cardName = value;
-            }
 
-        }
-        public uint ManaCost
-        {
-            get
-            {
-                return this.manaCost;
-            }
-            private set
-            {
-                this.manaCost = value;
-            }
-
-        }
         public uint Damage
         {
             get
-            {
-                return this.damage;
-            }
-            private set
-            {
-                this.damage = value;
-            }
-
+            { return this.damage; }
+            protected set
+            { this.damage = value; }
         }
-        
+
+        public override string Greeting()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
