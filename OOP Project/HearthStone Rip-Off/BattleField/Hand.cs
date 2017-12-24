@@ -1,39 +1,44 @@
-﻿using HearthStone_Rip_Off.Contracts;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HearthStone_Rip_Off.Contracts;
+using System.Collections.Generic;
+using HearthStone_Rip_Off.Deck;
 
 namespace HearthStone_Rip_Off.BattleField
 {
-    public class Hand : List<ICard>
+    public class Hand
     {
-        private ICollection<ICard> myHand;
+        private DeckCollection decks;
+        private Deck.Deck deck;
+        private List<ICard> cardsInHand;
 
         public Hand()
         {
-            this.MyHand = new List<ICard>();
+            this.decks = new DeckCollection();
+            this.deck = this.decks.GetRandomDeck();
         }
 
         public void PrintHand()
         {
-            foreach (var card in myHand)
+            foreach (var card in deck)
             {
-                //Console.WriteLine(String.Join(",", card.CardName));
+                Console.WriteLine(String.Join(",", card)); //TODO all cards should have ToString() ovveride
             }
+        }
+        
+        public void PullCard()
+        {
+            if(deck.Cards.Count == 0)
+                Console.WriteLine("The deck is empty.");
+
+            this.cardsInHand.Add(deck.Cards.First());
+            this.deck.Cards.RemoveAt(0);
         }
 
-        public ICollection<ICard> MyHand
+        public ICard PlayCard(int i) //i = index of one of the 3 cards in cardsInHand, 1,2,3
         {
-            get
-            {
-                return this.myHand;
-            }
-            set
-            {
-                this.myHand = value;
-            }
+            return this.cardsInHand[i - 1];
         }
+
     }
 }

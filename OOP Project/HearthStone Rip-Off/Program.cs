@@ -1,4 +1,5 @@
-﻿using HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures;
+﻿using HearthStone_Rip_Off.BattleField;
+using HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures;
 using HearthStone_Rip_Off.Contracts;
 using HearthStone_Rip_Off.Deck;
 using System;
@@ -13,9 +14,8 @@ namespace HearthStone_Rip_Off
     {
         static void Main(string[] args)
         {
-            DeckCollection test = new DeckCollection();
-            test.GetRandomDeck();
-            
+            Hand test = new Hand();
+            test.PrintHand();
 
             GameEngine engine = new GameEngine();
 

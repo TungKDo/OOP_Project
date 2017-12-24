@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleField\Battle.cs" />
     <Compile Include="BattleField\Hand.cs" />
     <Compile Include="Cards\Card.cs" />
     <Compile Include="Cards\Creatures\Creature.cs" />
@@ -71,7 +72,6 @@
     <Compile Include="Contracts\ISpell.cs" />
     <Compile Include="Deck\Deck.cs" />
     <Compile Include="Deck\DeckCollection.cs" />
-    <Compile Include="Deck\DeckFactory.cs" />
     <Compile Include="Deck\ExtensionMethodsDeck.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="BattleField\Player.cs" />

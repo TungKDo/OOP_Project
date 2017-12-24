@@ -1,4 +1,5 @@
-﻿using HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures;
+﻿using HearthStone_Rip_Off.Cards.Creatures;
+using HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures;
 using HearthStone_Rip_Off.Contracts;
 using System;
 using System.Collections;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Deck
 {
-    public class Deck //: IEnumerable
+    public class Deck : IEnumerable
     {
         private IList<ICard> cards;
 
@@ -57,12 +58,17 @@ namespace HearthStone_Rip_Off.Deck
             this.cards = shuffledDeck;
         }
 
-        public void InitializeCreaturesAndSpells(Deck deck)
+        public void InitializeAllCards(Deck deck)
         {
             deck.Cards = new List<ICard>
             {
                 new ChillWindYeti(),
-                new EmperorCobra()
+                new EmperorCobra(),
+                new ManaWyrm(),
+                new Ogre(),
+                new SwampOoze(),
+                new Tiger(),
+                new WaterElemental()
             };
 
             Shuffle();
@@ -73,6 +79,11 @@ namespace HearthStone_Rip_Off.Deck
             {
                 throw new ArgumentNullException("The card cannot be null.");
             }
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return this.cards.GetEnumerator();
         }
     }
 }

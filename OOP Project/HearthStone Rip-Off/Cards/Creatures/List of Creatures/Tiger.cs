@@ -1,15 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using HearthStone_Rip_Off.Contracts;
 
 namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
 {
-    class Tiger : Creature
+    public class Tiger : Creature, ICard
     {
-        public Tiger(string cardName, uint manaCost, uint attackPoints, int healthPoints)// : base("Tiger", 5, 5, 5)
+        private readonly CreatureType type = CreatureType.Beast;
+        private readonly string cardName = "Tiger";
+        private readonly uint manaCost = 5;
+        private readonly uint attackPoints = 5;
+        private readonly int healthPoints = 5;
+
+        public Tiger()// : base("Tiger", 5, 5, 5)
         {
+            base.Type = type;
+            base.CardName = cardName;
+            base.ManaCost = manaCost;
+            base.AttackPoints = attackPoints;
+            base.HealthPoints = healthPoints;
         }
 
         public override string Greeting()

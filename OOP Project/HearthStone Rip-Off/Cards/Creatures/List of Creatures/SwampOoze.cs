@@ -1,16 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using HearthStone_Rip_Off.Contracts;
 
 namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
 {
-    class SwampOoze : Creature
+    public class SwampOoze : Creature, ICard
     {
-        public SwampOoze(string cardName, uint manaCost, uint attackPoints, int healthPoints)// : base("SwampOoze", 2, 3, 2)
-        {
+        private readonly CreatureType type = CreatureType.Beast;
+        private readonly string cardName = "SwampOoze";
+        private readonly uint manaCost = 2;
+        private readonly uint attackPoints = 3;
+        private readonly int healthPoints = 2;
 
+        public SwampOoze()// : base("SwampOoze", 2, 3, 2)
+        {
+            base.Type = type;
+            base.CardName = cardName;
+            base.ManaCost = manaCost;
+            base.AttackPoints = attackPoints;
+            base.HealthPoints = healthPoints;
         }
 
         public override string Greeting()

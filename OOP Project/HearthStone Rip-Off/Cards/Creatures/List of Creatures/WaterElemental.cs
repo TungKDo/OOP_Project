@@ -1,15 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
+using HearthStone_Rip_Off.Contracts;
 
 namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
 {
-    class WaterElemental : Creature
+    public class WaterElemental : Creature, ICard
     {
-        public WaterElemental(string cardName, uint manaCost, uint attackPoints, int healthPoints) //: base("WaterElemental", 4, 3, 6)
+        private readonly CreatureType type = CreatureType.Beast;
+        private readonly string cardName = "WaterElemental";
+        private readonly uint manaCost = 4;
+        private readonly uint attackPoints = 3;
+        private readonly int healthPoints = 6;
+
+        public WaterElemental() //: base("WaterElemental", 4, 3, 6)
         {
+            base.Type = type;
+            base.CardName = cardName;
+            base.ManaCost = manaCost;
+            base.AttackPoints = attackPoints;
+            base.HealthPoints = healthPoints;
         }
 
         public override string Greeting()

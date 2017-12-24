@@ -19,7 +19,7 @@ namespace HearthStone_Rip_Off.Deck
         public DeckCollection()
         {
             this.deck = new Deck();
-            this.deck.InitializeCreaturesAndSpells(deck);
+            this.deck.InitializeAllCards(deck);
         }
 
         public Deck GetRandomDeck()

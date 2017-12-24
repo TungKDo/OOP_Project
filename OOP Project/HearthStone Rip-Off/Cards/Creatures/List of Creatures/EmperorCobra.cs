@@ -1,13 +1,9 @@
-﻿using HearthStone_Rip_Off.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
+using HearthStone_Rip_Off.Contracts;
 
 namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
 {
-    class EmperorCobra : Creature, ICard
+    public class EmperorCobra : Creature, ICard
     {
         private readonly CreatureType type = CreatureType.Beast;
         private readonly string cardName = "EmperorCobra";
@@ -15,7 +11,7 @@ namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
         private readonly uint attackPoints = 3;
         private readonly int healthPoints = 3;
 
-        public EmperorCobra() 
+        public EmperorCobra()
         {
             base.Type = type;
             base.CardName = cardName;

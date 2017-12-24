@@ -12,44 +12,22 @@ namespace HearthStone_Rip_Off
     public class Player
     {
         private int lifePoint;
-        private PlayerDeck playerdeck;
         private Hand playerHand;
-
-
+        
         public Player(int lifePoint,PlayerDeck deck,Hand playerhand )
         {
-            if(deck == null)
-            {
-                throw new ArgumentNullException(nameof(deck));
-            }
-            Guard.WhenArgument(lifePoint, "Initial LifePoints must be possitive").IsLessThan(1).Throw();
             this.LifePoints = lifePoint;
-            this.PlayerDeck = new PlayerDeck();
-            this.PlayerHand = new Hand();
+            this.playerHand = new Hand();
         }
-
-        public PlayerDeck PlayerDeck
-        {
-            get
-            {
-                return this.playerdeck;
-            }
-            set
-            {
-                this.playerdeck = value;
-            }
-        }
+        
         public Hand PlayerHand
         {
             get
             {
                 return this.playerHand;
             }
-            set
-            {
-                this.playerHand = value;
-            }
         }
+
         public int LifePoints
         {
             get
@@ -58,6 +36,9 @@ namespace HearthStone_Rip_Off
             }
             set
             {
+                if(value < 1)
+                    Console.WriteLine("Life points must be more than 1.");
+
                 this.lifePoint = value;
             }
         }
