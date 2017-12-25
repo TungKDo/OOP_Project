@@ -9,6 +9,6 @@ namespace HearthStone_Rip_Off.Contracts
     public interface ICard
     {
         uint ManaCost { get; }
-        string Greeting();
+        string ShowInfo();
     }
 }

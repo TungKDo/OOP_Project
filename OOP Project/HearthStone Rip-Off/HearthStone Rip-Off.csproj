@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BattleField\Battle.cs" />
     <Compile Include="BattleField\Hand.cs" />
     <Compile Include="Cards\Card.cs" />
     <Compile Include="Cards\Creatures\Creature.cs" />

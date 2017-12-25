@@ -12,5 +12,7 @@ namespace HearthStone_Rip_Off.Cards.Spells.List_of_Spells
         {
 
         }
+
+
     }
 }

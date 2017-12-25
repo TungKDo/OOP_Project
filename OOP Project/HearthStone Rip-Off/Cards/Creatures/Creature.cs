@@ -12,6 +12,11 @@ namespace HearthStone_Rip_Off.Cards.Creatures
         private uint attackPoints;
         private int healthPoints;
         private CreatureType type;
+
+        public Creature(string cardName, uint manaCost, uint attackPoints, int healthPoints, CreatureType type)
+        {
+
+        }
         
         public uint AttackPoints
         {
@@ -52,7 +57,7 @@ namespace HearthStone_Rip_Off.Cards.Creatures
             }
         }
 
-        public override string Greeting()
+        public override string ShowInfo()
         {
             StringBuilder str = new StringBuilder();
 

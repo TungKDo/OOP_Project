@@ -8,49 +8,80 @@ using HearthStone_Rip_Off.Contracts;
 
 namespace HearthStone_Rip_Off.Deck
 {
-    public class DeckCollection 
+    public sealed class DeckCollection
     {
-        private const int countOfDecks = 3;
 
-        private Random random;
-        private Deck deck;
-        private IList<Deck> allDecks;
+        private readonly IDictionary<string, Deck> myDecks = new Dictionary<string, Deck>();
 
         public DeckCollection()
         {
-            this.deck = new Deck();
-            this.deck.InitializeAllCards(deck);
         }
 
-        public Deck GetRandomDeck()
+        public void CreateDeck(string deckName)
         {
-            CreateDecks();
-
-            int randomIndex = random.Next(0, allDecks.Count);
-
-            return allDecks[randomIndex];
+            myDecks.Add(deckName, new Deck());
         }
 
-        private void CreateDecks()
+        public IDictionary<string, Deck> MyDeck
         {
-            this.allDecks = new List<Deck>();
-
-            PopulateWithDecks();
-        }
-
-        private void PopulateWithDecks()
-        {
-            Deck newDeck = new Deck();
-
-            int countOfAllCards = deck.Cards.Count;
-
-            int portionToTake = countOfAllCards % countOfDecks;
-
-            for (int i = 0; i < countOfAllCards; i += portionToTake)
+            get
             {
-                newDeck.Cards = deck.Cards.Skip(i).Take(portionToTake).ToList();
-                this.allDecks.Add(newDeck); //yield
+                return this.myDecks;
             }
         }
+
+        public void RemoveDeck(string deckName)
+        {
+            myDecks.Remove(deckName);
+        }
+
+        
+
+
+
+
+
+        //private const int countOfDecks = 3;
+
+        //private Random random;
+        //private Deck deck;
+        //private IList<Deck> allDecks;
+
+        //public DeckCollection()
+        //{
+        //    this.deck = new Deck();
+        //    this.deck.InitializeAllCards(deck);
+        //}
+
+        //public Deck GetRandomDeck()
+        //{
+        //    CreateDecks();
+
+        //    int randomIndex = random.Next(0, allDecks.Count);
+
+        //    return allDecks[randomIndex];
+        //}
+
+        //private void CreateDecks()
+        //{
+        //    this.allDecks = new List<Deck>();
+
+        //    PopulateWithDecks();
+        //}
+
+        //private void PopulateWithDecks()
+        //{
+        //    Deck newDeck = new Deck();
+
+        //    int countOfAllCards = deck.Cards.Count;
+
+        //    int portionToTake = countOfAllCards % countOfDecks;
+
+        //    for (int i = 0; i < countOfAllCards; i += portionToTake)
+        //    {
+        //        newDeck.Cards = deck.Cards.Skip(i).Take(portionToTake).ToList();
+        //        this.allDecks.Add(newDeck); //yield
+        //    }
+        //}
     }
 }

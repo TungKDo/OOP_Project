@@ -4,26 +4,12 @@ using HearthStone_Rip_Off.Contracts;
 
 namespace HearthStone_Rip_Off.Cards.Creatures
 {
-    public class Ogre : Creature, ICard
+    public class Ogre : Creature
     {
-        private readonly CreatureType type = CreatureType.Beast;
-        private readonly string cardName = "Ogre";
-        private readonly uint manaCost = 6;
-        private readonly uint attackPoints = 6;
-        private readonly int healthPoints = 7;
-
-        public Ogre() // : base("Ogre", 6, 6, 7)
+        public Ogre(string cardName = "Ogre", uint manaCost = 6, uint attackPoints = 6,
+            int healthPoints = 7, CreatureType type = CreatureType.Neutral)
+            : base(cardName, manaCost, attackPoints, healthPoints, type)
         {
-            base.Type = type;
-            base.CardName = cardName;
-            base.ManaCost = manaCost;
-            base.AttackPoints = attackPoints;
-            base.HealthPoints = healthPoints;
-        }
-
-        public override string Greeting()
-        {
-            throw new NotImplementedException();
         }
     }
 }

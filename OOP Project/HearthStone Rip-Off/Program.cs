@@ -14,9 +14,6 @@ namespace HearthStone_Rip_Off
     {
         static void Main(string[] args)
         {
-            Hand test = new Hand();
-            test.PrintHand();
-
             GameEngine engine = new GameEngine();
 
             engine.Run();

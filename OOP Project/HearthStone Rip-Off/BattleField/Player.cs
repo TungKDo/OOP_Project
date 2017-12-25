@@ -13,9 +13,11 @@ namespace HearthStone_Rip_Off
     {
         private int lifePoint;
         private Hand playerHand;
+
         
         public Player(int lifePoint,PlayerDeck deck,Hand playerhand )
         {
+
             this.LifePoints = lifePoint;
             this.playerHand = new Hand();
         }

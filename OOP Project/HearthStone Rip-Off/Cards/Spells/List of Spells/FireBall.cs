@@ -12,9 +12,6 @@ namespace HearthStone_Rip_Off.Cards.Spells.List_of_Spells
         {
         }
 
-        public override string Greeting()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

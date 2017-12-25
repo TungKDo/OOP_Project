@@ -19,7 +19,10 @@ namespace HearthStone_Rip_Off.Cards
             protected set { this.manaCost = value; }
         }
 
-        public abstract string Greeting();
-        
+        public virtual string ShowInfo()
+        {
+            return "";
+        }
+
     }
 }

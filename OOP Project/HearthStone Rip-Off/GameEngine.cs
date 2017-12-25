@@ -4,14 +4,15 @@ using HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures;
 using HearthStone_Rip_Off.Cards.Spells.List_of_Spells;
 using HearthStone_Rip_Off.Deck;
 using System;
-//using PlayerDeck = HearthStone_Rip_Off.Deck.Deck;
+using System.Collections.Generic;
 
 namespace HearthStone_Rip_Off
 {
     public class GameEngine
     {
         private const int InitialPlayerLifePoints = 15;
-        private DeckCollection deckCollection;
+        private DeckCollection deckCollection = new DeckCollection();
+        
 
         public GameEngine()
         {
@@ -19,6 +20,7 @@ namespace HearthStone_Rip_Off
             //this.deckCollection.Generate(deckCount: 5, deckSize: 3);
         }
 
+        
         public void Run()
         {
             Console.WriteLine("Welcome to BattleArena");
@@ -40,6 +42,12 @@ namespace HearthStone_Rip_Off
                             StartNewGame();
                             break;
                         }
+                    case "2":
+                        {
+                            ManageDeckCollection();
+                            break;
+                        }
+
                     case "4":
                         {
                             Exit();
@@ -51,6 +59,50 @@ namespace HearthStone_Rip_Off
                             break;
                         }
                 }
+            }
+        }
+
+        private void ManageDeckCollection()
+        {
+            Console.WriteLine("1. Create Deck");
+            Console.WriteLine("2. Delete Deck");
+            Console.WriteLine("3. Add cards to an existing Deck");
+            string input = Console.ReadLine();
+
+            
+
+            while(input != "5")
+            {
+                switch(input)
+                {
+                    case "1":
+                        Console.WriteLine("Please type in the deck name");
+                        string deckName = Console.ReadLine();
+                        deckCollection.CreateDeck(deckName);
+                        ManageDeckCollection();
+                        break;
+
+                    case "2":
+                        Console.WriteLine("Please type in the deck name");
+                        string deckName1 = Console.ReadLine();
+                        deckCollection.RemoveDeck(deckName1);
+                        ManageDeckCollection();
+                        break;
+                    case "3":
+                        Console.WriteLine("Please enter the name of the deck you would like to add cards to:");
+                        foreach (string key in deckCollection.MyDeck.Keys)
+                        {                            
+                            Console.WriteLine(key);
+                        }                        
+                        string deckName3 = Console.ReadLine();
+                        deckCollection.MyDeck[deckName3]
+
+                        ManageDeckCollection();
+                        break;                        
+                        
+                }
+                    
+
             }
         }
 

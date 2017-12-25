@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Cards.Spells
 {
-    public abstract class Spell : Card, ICard, ISpell
+    public abstract class Spell : Card, ISpell
     {
         private uint damage;
 
@@ -26,9 +26,6 @@ namespace HearthStone_Rip_Off.Cards.Spells
             { this.damage = value; }
         }
 
-        public override string Greeting()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

@@ -58,21 +58,21 @@ namespace HearthStone_Rip_Off.Deck
             this.cards = shuffledDeck;
         }
 
-        public void InitializeAllCards(Deck deck)
-        {
-            deck.Cards = new List<ICard>
-            {
-                new ChillWindYeti(),
-                new EmperorCobra(),
-                new ManaWyrm(),
-                new Ogre(),
-                new SwampOoze(),
-                new Tiger(),
-                new WaterElemental()
-            };
+        //public void InitializeAllCards(Deck deck)
+        //{
+        //    deck.Cards = new List<ICard>
+        //    {
+        //        new ChillWindYeti(),
+        //        new EmperorCobra(),
+        //        new ManaWyrm(),
+        //        new Ogre(),
+        //        new SwampOoze(),
+        //        new Tiger(),
+        //        new WaterElemental()
+        //    };
 
-            Shuffle();
-        }
+        //    Shuffle();
+        //}
         private void CheckIfCardIsNull(ICard card)
         {
             if (card == null)
