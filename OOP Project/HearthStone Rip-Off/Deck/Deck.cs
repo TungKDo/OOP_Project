@@ -31,13 +31,13 @@ namespace HearthStone_Rip_Off.Deck
             }
         }
 
-        protected void Add(ICard card)
+        public void Add(ICard card)
         {
             CheckIfCardIsNull(card);
             this.cards.Add(card);
         }
 
-        protected void Remove(ICard card)
+        public void Remove(ICard card)
         {
             CheckIfCardIsNull(card);
             this.cards.Remove(card);

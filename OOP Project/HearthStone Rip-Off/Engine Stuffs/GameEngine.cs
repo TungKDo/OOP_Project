@@ -2,6 +2,7 @@
 using HearthStone_Rip_Off.Cards.Creatures;
 using HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures;
 using HearthStone_Rip_Off.Cards.Spells.List_of_Spells;
+using HearthStone_Rip_Off.Contracts;
 using HearthStone_Rip_Off.Deck;
 using System;
 using System.Collections.Generic;
@@ -95,7 +96,9 @@ namespace HearthStone_Rip_Off
                             Console.WriteLine(key);
                         }                        
                         string deckName3 = Console.ReadLine();
-                        deckCollection.MyDeck[deckName3]
+                        string cardToBeAdded = Console.ReadLine();
+                        CardFactory(cardToBeAdded);
+                        deckCollection.MyDeck[deckName3].Add(new Tiger());
 
                         ManageDeckCollection();
                         break;                        
@@ -105,6 +108,8 @@ namespace HearthStone_Rip_Off
 
             }
         }
+
+        
 
         private void StartNewGame()
         {
@@ -182,6 +187,24 @@ namespace HearthStone_Rip_Off
             //        player2Hand.MyHand.Add(currentCard);
             //        player2Deck.MyDeck.Remove(currentCard);
             //    }
+        }
+
+        private ICard CardFactory(string cardToBeAdded)
+        {
+            cardToBeAdded = cardToBeAdded.ToLower();
+            switch (cardToBeAdded)
+            {
+                case "chillwindyeti":
+                    {
+                        return new ChillWindYeti();
+                    }
+                default:
+                    {
+                        return new ChillWindYeti();
+                    }
+
+            }
+                
         }
 
         private void Exit()
