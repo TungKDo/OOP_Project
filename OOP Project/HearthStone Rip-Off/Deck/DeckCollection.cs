@@ -10,11 +10,20 @@ namespace HearthStone_Rip_Off.Deck
 {
     public sealed class DeckCollection
     {
+        static readonly DeckCollection instance = new DeckCollection();
 
         private readonly IDictionary<string, Deck> myDecks = new Dictionary<string, Deck>();
 
         public DeckCollection()
         {
+        }
+
+        public static DeckCollection Instance
+        {
+            get
+            {
+                return instance;
+            }
         }
 
         public void CreateDeck(string deckName)
@@ -35,7 +44,7 @@ namespace HearthStone_Rip_Off.Deck
             myDecks.Remove(deckName);
         }
 
-        
+
 
 
 

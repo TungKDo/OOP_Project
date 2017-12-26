@@ -195,7 +195,7 @@ namespace HearthStone_Rip_Off
             {
                 case "chillwindyeti":
                     {
-                        return new ChillWindYeti();
+                        return new ChillWindYeti("фггг", 4, 5, 4);
                     }
                 default:
                     {
