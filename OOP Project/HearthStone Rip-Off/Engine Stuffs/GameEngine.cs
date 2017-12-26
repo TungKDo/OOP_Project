@@ -68,11 +68,13 @@ namespace HearthStone_Rip_Off
             Console.WriteLine("1. Create Deck");
             Console.WriteLine("2. Delete Deck");
             Console.WriteLine("3. Add cards to an existing Deck");
+            Console.WriteLine("4. Remove cards to an existing Deck");
+            Console.WriteLine("5. Back");
             string input = Console.ReadLine();
 
             
 
-            while(input != "5")
+            while(true)
             {
                 switch(input)
                 {
@@ -100,8 +102,11 @@ namespace HearthStone_Rip_Off
                         deckCollection.MyDeck[deckName3].Add(CardFactory(cardToBeAdded));
 
                         ManageDeckCollection();
-                        break;                        
-                        
+                        break;
+
+                    case "5":
+                        Run();
+                        break;
                 }
                     
 
