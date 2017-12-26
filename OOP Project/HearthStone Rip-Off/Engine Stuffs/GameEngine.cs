@@ -28,6 +28,7 @@ namespace HearthStone_Rip_Off
             Console.WriteLine("Choose an item from the menu below");
             Console.WriteLine("1. New Game");
             Console.WriteLine("2. Deck Collection");
+            Console.WriteLine("3. Credits");
             Console.WriteLine("4. Exit");
 
             string input = Console.ReadLine();
@@ -48,6 +49,11 @@ namespace HearthStone_Rip_Off
                             ManageDeckCollection();
                             break;
                         }
+                    case "3":
+                        {
+                            ShowCredits();
+                            break;
+                        }
 
                     case "4":
                         {
@@ -63,13 +69,16 @@ namespace HearthStone_Rip_Off
             }
         }
 
+        
+
         private void ManageDeckCollection()
         {
             Console.WriteLine("1. Create Deck");
             Console.WriteLine("2. Delete Deck");
             Console.WriteLine("3. Add cards to an existing Deck");
             Console.WriteLine("4. Remove cards to an existing Deck");
-            Console.WriteLine("5. Back");
+            Console.WriteLine("5. List all cards in a deck");
+            Console.WriteLine("6. Back");
             string input = Console.ReadLine();
 
             
@@ -80,15 +89,15 @@ namespace HearthStone_Rip_Off
                 {
                     case "1":
                         Console.WriteLine("Please type in the deck name");
-                        string deckName = Console.ReadLine();
-                        deckCollection.CreateDeck(deckName);
+                        string deckName1 = Console.ReadLine();
+                        deckCollection.CreateDeck(deckName1);
                         ManageDeckCollection();
                         break;
 
                     case "2":
                         Console.WriteLine("Please type in the deck name");
-                        string deckName1 = Console.ReadLine();
-                        deckCollection.RemoveDeck(deckName1);
+                        string deckName2 = Console.ReadLine();
+                        deckCollection.RemoveDeck(deckName2);
                         ManageDeckCollection();
                         break;
                     case "3":
@@ -98,22 +107,64 @@ namespace HearthStone_Rip_Off
                             Console.WriteLine(key);
                         }                        
                         string deckName3 = Console.ReadLine();
-                        string cardToBeAdded = Console.ReadLine();                        
-                        deckCollection.MyDeck[deckName3].Add(CardFactory(cardToBeAdded));
-
+                        Console.WriteLine("Please enter the name of the cards to be added");
+                        Console.WriteLine("When done, please type exit ");
+                        while (true)
+                        {
+                            string cardToBeAdded = Console.ReadLine();
+                            if (cardToBeAdded == "exit")
+                            {
+                                break;
+                            }
+                            deckCollection.MyDeck[deckName3].Add(CardFactory(cardToBeAdded));                            
+                        }
                         ManageDeckCollection();
                         break;
 
                     case "5":
+                        Console.WriteLine("Please enter the name of the deck you would like to list all cards of:");
+                        foreach (string key in deckCollection.MyDeck.Keys)
+                        {
+                            Console.WriteLine(key);
+                        }
+                        string deckName5 = Console.ReadLine();
+
+                        foreach (ICard card in deckCollection.MyDeck[deckName5].Cards)
+                        {
+                            Console.WriteLine(card.CardName);
+                            Console.WriteLine("===========================");
+                        }
+                        ManageDeckCollection();
+                        break;
+
+                    case "6":
                         Run();
                         break;
+
+                    default:
+                        Console.WriteLine("Invalid input.");
+                        ManageDeckCollection();
+                        break;
+
                 }
                     
 
             }
         }
 
-        
+        private void ShowCredits()
+        {
+            Console.WriteLine($"===========================\n" +
+                $"This game was created by:\nAlexandra Petrova\nBorislav Borisov\nTung Do\n" +
+                $"===========================\n\n");
+            Run();
+        }
+
+        private void Exit()
+        {
+            Environment.Exit(0);
+        }
+
 
         private void StartNewGame()
         {
@@ -200,20 +251,54 @@ namespace HearthStone_Rip_Off
             {
                 case "chillwindyeti":
                     {
-                        return new ChillWindYeti("фггг", 4, 5, 4);
+                        return new ChillWindYeti();
+                    }
+                case "emperorcobra":
+                    {
+                        return new EmperorCobra();
+                    }
+                case "manawyrm":
+                    {
+                        return new ManaWyrm();
+                    }
+                case "ogre":
+                    {
+                        return new Ogre();
+                    }
+                case "swampooze":
+                    {
+                        return new SwampOoze();
+                    }
+                case "tiger":
+                    {
+                        return new Tiger();
+                    }
+                case "waterelemental":
+                    {
+                        return new WaterElemental();
+                    }
+                case "fireball":
+                    {
+                        return new FireBall();
+                    }
+                case "fireblast":
+                    {
+                        return new FireBlast();
+                    }
+                case "frostbolt":
+                    {
+                        return new FrostBolt();
                     }
                 default:
                     {
-                        return new ChillWindYeti();
+                        return new FrostBolt();
                     }
+ 
 
             }
                 
         }
 
-        private void Exit()
-        {
-            Environment.Exit(0);
-        }
+        
     }
 }

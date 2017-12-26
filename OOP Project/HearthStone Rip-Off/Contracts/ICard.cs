@@ -8,6 +8,7 @@ namespace HearthStone_Rip_Off.Contracts
 {
     public interface ICard
     {
+        string CardName { get; }
         uint ManaCost { get; }
         string ShowInfo();
     }

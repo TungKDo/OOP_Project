@@ -71,7 +71,6 @@
     <Compile Include="Contracts\ISpell.cs" />
     <Compile Include="Deck\Deck.cs" />
     <Compile Include="Deck\DeckCollection.cs" />
-    <Compile Include="Deck\ExtensionMethodsDeck.cs" />
     <Compile Include="Engine Stuffs\GameEngine.cs" />
     <Compile Include="BattleField\Player.cs" />
     <Compile Include="Engine Stuffs\Program.cs" />
