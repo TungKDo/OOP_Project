@@ -96,9 +96,8 @@ namespace HearthStone_Rip_Off
                             Console.WriteLine(key);
                         }                        
                         string deckName3 = Console.ReadLine();
-                        string cardToBeAdded = Console.ReadLine();
-                        CardFactory(cardToBeAdded);
-                        deckCollection.MyDeck[deckName3].Add(new Tiger());
+                        string cardToBeAdded = Console.ReadLine();                        
+                        deckCollection.MyDeck[deckName3].Add(CardFactory(cardToBeAdded));
 
                         ManageDeckCollection();
                         break;                        
