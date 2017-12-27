@@ -8,13 +8,13 @@ using HearthStone_Rip_Off.Contracts;
 
 namespace HearthStone_Rip_Off.Deck
 {
-    public sealed class DeckCollection
+    public class DeckCollection
     {
-        static readonly DeckCollection instance = new DeckCollection();
+        private static readonly DeckCollection instance = new DeckCollection();
 
         private readonly IDictionary<string, Deck> myDecks = new Dictionary<string, Deck>();
 
-        public DeckCollection()
+        private DeckCollection()
         {
         }
 
