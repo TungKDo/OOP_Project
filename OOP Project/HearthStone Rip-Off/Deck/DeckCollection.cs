@@ -43,12 +43,7 @@ namespace HearthStone_Rip_Off.Deck
         {
             myDecks.Remove(deckName);
         }
-
-
-
-
-
-
+        
 
         //private const int countOfDecks = 3;
 

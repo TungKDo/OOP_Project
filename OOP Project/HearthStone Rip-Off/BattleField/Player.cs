@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using HearthStone_Rip_Off.BattleField;
+using HearthStone_Rip_Off.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,14 @@ namespace HearthStone_Rip_Off
     public class Player
     {
         private int lifePoint;
+        private int manaCrystals;
+        private int maxManaCrystals;
         private Hand playerHand;
-
-
+        private IList<ICard> playerDeck;
+        private IList<ICreature> battleField;
         
         public Player(int lifePoint,PlayerDeck deck,Hand playerhand )
         {
-
             this.LifePoints = lifePoint;
             this.playerHand = new Hand();
         }

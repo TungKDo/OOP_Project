@@ -111,9 +111,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                         break;
 
                 }
-
-
-
+                
             }
         }
         private static ICard CardFactory(string cardToBeAdded)
