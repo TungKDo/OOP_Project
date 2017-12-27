@@ -79,6 +79,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                             {
                                 break;
                             }
+                            ICard card = deckCollection.MyDeck[deckName4].Cards.FirstOrDefault(x => x.CardName.ToLower() == cardToBeRemoved);
                             deckCollection.MyDeck[deckName4].Remove(card);
                         }
                         ManageDeckCollection();
