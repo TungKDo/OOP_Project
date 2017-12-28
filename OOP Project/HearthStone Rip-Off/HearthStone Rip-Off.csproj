@@ -74,6 +74,7 @@
     <Compile Include="Engine Stuffs\GameEngine.cs" />
     <Compile Include="BattleField\Player.cs" />
     <Compile Include="Engine Stuffs\ManageDeckCollection.cs" />
+    <Compile Include="Engine Stuffs\PlayGame.cs" />
     <Compile Include="Engine Stuffs\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

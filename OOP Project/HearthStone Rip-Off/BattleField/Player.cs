@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PlayerDeck = HearthStone_Rip_Off.Deck.Deck;
+
 
 namespace HearthStone_Rip_Off
 {
@@ -16,20 +16,63 @@ namespace HearthStone_Rip_Off
         private int manaCrystals;
         private int maxManaCrystals;
         private Hand playerHand;
-        private IList<ICard> playerDeck;
+        private Deck.Deck playerDeck;
         private IList<ICreature> battleField;
+
         
-        public Player(int lifePoint,PlayerDeck deck,Hand playerhand )
+
+        public Player(Deck.Deck playerDeck)
         {
-            this.LifePoints = lifePoint;
             this.playerHand = new Hand();
+            this.playerDeck = new Deck.Deck();
+            this.battleField = new List<ICreature>();
+            this.ManaCrystals = 1;
+            this.MaxManaCrystals = 1;
         }
-        
+
+        public int ManaCrystals
+        {
+            get
+            {
+                return manaCrystals;
+            }
+            private set
+            {
+                this.ManaCrystals = value;
+            }
+        }
+        public int MaxManaCrystals
+        {
+            get
+            {
+                return maxManaCrystals;
+            }
+            private set
+            {
+                this.MaxManaCrystals = value;
+            }
+        }
         public Hand PlayerHand
         {
             get
             {
                 return this.playerHand;
+            }
+            protected set
+            {
+                this.playerHand = value;
+            }
+        }
+
+        public Deck.Deck PlayerDeck
+        {
+            get
+            {
+                return this.playerDeck;
+            }
+            protected set
+            {
+                this.playerDeck = value;
             }
         }
 
@@ -46,6 +89,21 @@ namespace HearthStone_Rip_Off
 
                 this.lifePoint = value;
             }
+        }
+
+        public void DrawThreeCards()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                ICard cardToBeDraw = PlayerDeck.Cards[PlayerDeck.Cards.Count - 1];
+                this.PlayerHand.Add(cardToBeDraw);
+                this.PlayerDeck.Remove(cardToBeDraw);
+            }
+
+        }
+        public void DrawACards()
+        {
+
         }
 
     }

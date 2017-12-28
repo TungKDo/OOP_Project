@@ -35,7 +35,7 @@ namespace HearthStone_Rip_Off
                 {
                     case "1":
                         {
-                            StartNewGame();
+                            PlayGame.NewGame();
                             break;
                         }
                     case "2":
@@ -89,17 +89,6 @@ namespace HearthStone_Rip_Off
             //PlayerDeck player1Deck = new PlayerDeck();
             //PlayerDeck player2Deck = new PlayerDeck();
 
-            //player1Deck.
-
-            //player1Deck.MyDeck.Add(new ChillWindYeti());
-            //player1Deck.MyDeck.Add(new Demon("Demon", 7, 7, 7));
-            //player1Deck.MyDeck.Add(new EmperorCobra("EmperorCobra", 3, 3, 3));
-            //player1Deck.MyDeck.Add(new ManaWyrm("Manawyrm", 1, 1, 3));
-
-            //player2Deck.MyDeck.Add(new Ogre("Ogre", 6, 6, 7));
-            //player2Deck.MyDeck.Add(new SwampOoze("SwampOoze", 2, 3, 2));
-            //player2Deck.MyDeck.Add(new Tiger("Tiger", 5, 5, 5));
-            //player2Deck.MyDeck.Add(new WaterElemental("WaterElemental", 4, 3, 6));
 
             //player1Deck.Shuffle();
             //player2Deck.Shuffle();
