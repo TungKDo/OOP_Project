@@ -10,6 +10,5 @@ namespace HearthStone_Rip_Off.Contracts
     {
         uint AttackPoints { get; }
         int HealthPoints { get; }
-
     }
 }

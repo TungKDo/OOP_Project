@@ -9,5 +9,6 @@ namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
             : base("ChillWindYeti", 4, 4, 5, CreatureType.Beast)
         {
         }
+        
     }
 }

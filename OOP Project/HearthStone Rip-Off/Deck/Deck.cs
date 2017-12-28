@@ -33,13 +33,35 @@ namespace HearthStone_Rip_Off.Deck
 
         public void Add(ICard card)
         {
-            CheckIfCardIsNull(card);
+            if (CheckIfCardIsNull(card))
+            {
+                Console.WriteLine("The card cannot be null.");
+                return;
+            }
+
+            if (CheckIfListContainsCard(card))
+            {
+                Console.WriteLine("The list doesn't contains the card.");
+                return;
+            }
+
             this.cards.Add(card);
         }
 
         public void Remove(ICard card)
         {
-            CheckIfCardIsNull(card);
+            if (CheckIfCardIsNull(card))
+            {
+                Console.WriteLine("The card cannot be null.");
+                return;
+            }
+
+            if (!CheckIfListContainsCard(card))
+            {
+                Console.WriteLine("The list doesn't contains the card.");
+                return;
+            }
+
             this.cards.Remove(card);
         }
 
@@ -59,12 +81,28 @@ namespace HearthStone_Rip_Off.Deck
         }
 
 
-        private void CheckIfCardIsNull(ICard card)
+        private bool CheckIfCardIsNull(ICard card)
         {
+            bool isNull = false;
+
             if (card == null)
             {
-                throw new ArgumentNullException("The card cannot be null.");
+                isNull = true;
             }
+
+            return isNull;
+        }
+
+        public bool CheckIfListContainsCard(ICard card)
+        {
+            bool ifListContainsCard = true;
+
+            if (!cards.Contains(card))
+            {
+                ifListContainsCard = false;
+            }
+
+            return ifListContainsCard;
         }
 
         public IEnumerator GetEnumerator()

@@ -35,7 +35,7 @@ namespace HearthStone_Rip_Off.Deck
         {
             get
             {
-                return this.myDecks;
+                return new Dictionary<string, Deck>(this.myDecks);
             }
         }
 
@@ -43,7 +43,7 @@ namespace HearthStone_Rip_Off.Deck
         {
             myDecks.Remove(deckName);
         }
-        
+
 
         //private const int countOfDecks = 3;
 
