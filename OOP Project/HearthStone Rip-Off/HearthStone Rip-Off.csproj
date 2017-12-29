@@ -49,7 +49,17 @@
     <Compile Include="Cards\Card.cs" />
     <Compile Include="Cards\Creatures\Creature.cs" />
     <Compile Include="Cards\Creatures\CreatureType.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\AldorPeacekeeper.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\Alexstrasza.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\AncientBrewmaster.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\AncientMage.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\ArchmageAntonidas.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\AuchenaiSoulpriest.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\Cenarius.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\ChillWindYeti.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\Deathwing.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\Doomguard.cs" />
+    <Compile Include="Cards\Creatures\List of Creatures\DruidOfTheClaw.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\EmperorCobra.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\SwampOoze.cs" />
     <Compile Include="Cards\Creatures\List of Creatures\ManaWyrm.cs" />

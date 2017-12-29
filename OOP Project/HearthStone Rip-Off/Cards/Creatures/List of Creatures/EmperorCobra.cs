@@ -8,7 +8,6 @@ namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
         public EmperorCobra()
             : base("EmperorCobra", 3, 3, 3, CreatureType.Beast)
         {
-
         }
     }
 }

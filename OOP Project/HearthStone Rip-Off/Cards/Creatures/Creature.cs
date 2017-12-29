@@ -22,8 +22,6 @@ namespace HearthStone_Rip_Off.Cards.Creatures
             this.HealthPoints = healthPoints;
             this.type = type;
         }
-
-
         
         public uint AttackPoints
         {
@@ -51,7 +49,6 @@ namespace HearthStone_Rip_Off.Cards.Creatures
 
         }
        
-
         public CreatureType Type
         {
             get
@@ -60,15 +57,14 @@ namespace HearthStone_Rip_Off.Cards.Creatures
             }
         }
 
-        public override string ShowInfo()
+        public override void ShowInfo()
         {
             StringBuilder str = new StringBuilder();
+            
+            str.AppendFormat("Name: {0}, Mana cost: {1}, Attack points: {2}, Health points: {3}, Creature type:{4}", 
+                base.CardName, base.ManaCost, this.attackPoints, this.healthPoints, this.type);
 
-            str.AppendFormat("Name: {0}, Mana cost: {1}, Attack points: {2}, Health points: {3}", 
-                base.CardName, base.ManaCost, this.attackPoints, this.healthPoints);
-
-            return str.ToString();
+            Console.WriteLine(str.ToString());
         }
-
     }
 }
