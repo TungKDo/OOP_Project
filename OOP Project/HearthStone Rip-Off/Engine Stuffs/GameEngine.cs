@@ -62,11 +62,7 @@ namespace HearthStone_Rip_Off
                 }
             }
         }
-
         
-
-        
-
         private static void ShowCredits()
         {
             Console.WriteLine($"===========================\n" +
@@ -79,77 +75,6 @@ namespace HearthStone_Rip_Off
         {
             Environment.Exit(0);
         }
-
-
-        private static void StartNewGame()
-        {
-
-            
-
-            //PlayerDeck player1Deck = new PlayerDeck();
-            //PlayerDeck player2Deck = new PlayerDeck();
-
-
-            //player1Deck.Shuffle();
-            //player2Deck.Shuffle();
-
-
-            //Hand player1Hand = new Hand();
-            //Hand player2Hand = new Hand();
-
-            //Player player1 = new Player(15 ,player1Deck,player1Hand);
-            //Player player2 = new Player(15 ,player2Deck, player1Hand);
-
-
-            //GameInitialization();
-
-
-
-            //    bool isFirstPlayerMove = true;
-            //    Player winner = null;
-
-            //    while (true)
-            //    {
-            //        string playerInput = Console.ReadLine();
-
-            //        // do battle
-
-            //        if(isFirstPlayerMove && player2.LifePoints <= 0)
-            //        {
-            //            winner = player1;
-            //            break;
-            //        }
-            //        else if(!isFirstPlayerMove && player1.LifePoints <= 0)
-            //        {
-            //            winner = player2;
-            //            break;
-            //        }
-
-            //        isFirstPlayerMove = !isFirstPlayerMove;
-            //    }
-
-            //    Console.WriteLine("The winner is: {0}", winner);
-            //}
-
-            //private void GameInitialization(PlayerDeck player1Deck, Player, PlayerDeck player2Deck)
-            //{
-            //    for (int i = 0; i < 3; i++)
-            //    {
-
-            //        var currentCard = player1Deck.MyDeck[0];
-            //        player1Hand.MyHand.Add(currentCard);
-            //        player1Deck.MyDeck.Remove(currentCard);
-            //    }
-            //    for (int i = 0; i < 3; i++)
-            //    {
-            //        var currentCard = player2Deck.MyDeck[0];
-            //        player2Hand.MyHand.Add(currentCard);
-            //        player2Deck.MyDeck.Remove(currentCard);
-            //    }
-        }
-
        
-
-        
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Engine_Stuffs
@@ -11,9 +12,13 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
     public static class PlayGame
     {
         private static DeckCollection deckCollection = DeckCollection.Instance;
+        private static Player player1 = new Player();
+        private static Player player2 = new Player();
 
         public static void NewGame()
         {
+            //Pregame selection:
+
             Console.WriteLine("Player 1 please choose your deck:");
 
             foreach (string key in deckCollection.MyDeck.Keys)
@@ -27,30 +32,30 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
             Deck.Deck player2deck = deckCollection.MyDeck[Console.ReadLine()];
             player2deck.Shuffle();
             
-            Player player1 = new Player(player1deck);
-            Player player2 = new Player(player2deck);
+            
+            
             player1.DrawThreeCards();
             player2.DrawThreeCards();
 
+            string playerTurn = "P1";
+
             while (true)
             {
-                int turn = 1;
-
-                switch (turn)
+                if(playerTurn == "P1")
                 {
-                    case 1: //Player1
-
-                        //List all cards in deck
-                        
-
-                        break;
-
-                    case 2: //Player2
-
-                        break;
+                    PlayTurn(player1);
                 }
+                else
+                {
+                    PlayTurn(player2);
+                }
+                
             }
         }
 
+        private static void PlayTurn(Player player)
+        {
+            //тук ще се случи действието и в края на всеки ход, ще сменим playerTurn на "P2"
+        }
     }
 }

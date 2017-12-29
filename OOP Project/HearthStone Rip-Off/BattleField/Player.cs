@@ -21,13 +21,13 @@ namespace HearthStone_Rip_Off
 
         
 
-        public Player(Deck.Deck playerDeck)
+        public Player()
         {
             this.playerHand = new Hand();
             this.playerDeck = new Deck.Deck();
             this.battleField = new List<ICreature>();
-            this.ManaCrystals = 1;
-            this.MaxManaCrystals = 1;
+            this.ManaCrystals = 0;
+            this.MaxManaCrystals = 0;
         }
 
         public int ManaCrystals
@@ -38,7 +38,7 @@ namespace HearthStone_Rip_Off
             }
             private set
             {
-                this.ManaCrystals = value;
+                this.manaCrystals = value;
             }
         }
         public int MaxManaCrystals
@@ -49,7 +49,7 @@ namespace HearthStone_Rip_Off
             }
             private set
             {
-                this.MaxManaCrystals = value;
+                this.maxManaCrystals = value;
             }
         }
         public Hand PlayerHand
@@ -105,6 +105,8 @@ namespace HearthStone_Rip_Off
         {
 
         }
+
+
 
     }
 }
