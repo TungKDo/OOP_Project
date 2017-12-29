@@ -108,7 +108,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
                         Console.WriteLine("Please enter the name of the cards that you want to remove:");
                         Console.WriteLine("When done, please type exit ");
-                        
+
                         while (true)
                         {
                             string cardToBeRemoved = Console.ReadLine();
@@ -175,9 +175,49 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
             cardToBeAdded = cardToBeAdded.ToLower();
             switch (cardToBeAdded)
             {
+                case "aldorpeacekeeper":
+                    {
+                        return new AldorPeacekeeper();
+                    }
+                case "alexstrasza":
+                    {
+                        return new Alexstrasza();
+                    }
+                case "ancientbrewmaster":
+                    {
+                        return new AncientBrewmaster();
+                    }
+                case "ancientmage":
+                    {
+                        return new AncientMage();
+                    }
+                case "archmageantonidas":
+                    {
+                        return new ArchmageAntonidas();
+                    }
+                case "auchenaisoulpriest":
+                    {
+                        return new AuchenaiSoulpriest();
+                    }
+                case "cenarius":
+                    {
+                        return new Cenarius();
+                    }
                 case "chillwindyeti":
                     {
                         return new ChillWindYeti();
+                    }
+                case "deathwing":
+                    {
+                        return new Deathwing();
+                    }
+                case "doomguard":
+                    {
+                        return new Doomguard();
+                    }
+                case "druidoftheclaw":
+                    {
+                        return new DruidOfTheClaw();
                     }
                 case "emperorcobra":
                     {
@@ -219,8 +259,6 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                     {
                         return new FrostBolt();
                     }
-
-
             }
 
         }

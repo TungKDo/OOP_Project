@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Cards.Spells.List_of_Spells
 {
-    class FrostBolt : Spell
+    public class FrostBolt : Spell
     {
         public FrostBolt(string cardName = "FrostBolt", uint manaCost = 2, uint damage = 3) : base(cardName, manaCost, damage)
         {
-
         }
-
-
     }
 }

@@ -3,12 +3,11 @@ using HearthStone_Rip_Off.Contracts;
 
 namespace HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures
 {
-    class ChillWindYeti : Creature
+    public class ChillWindYeti : Creature
     {
         public ChillWindYeti()
             : base("ChillWindYeti", 4, 4, 5, CreatureType.Beast)
         {
         }
-        
     }
 }

@@ -1,4 +1,6 @@
 ﻿using HearthStone_Rip_Off.Contracts;
+using System;
+using System.Text;
 
 namespace HearthStone_Rip_Off.Cards
 {
@@ -19,10 +21,6 @@ namespace HearthStone_Rip_Off.Cards
             protected set { this.manaCost = value; }
         }
 
-        public virtual string ShowInfo()
-        {
-            return "";
-        }
-
+        public abstract void ShowInfo();
     }
 }

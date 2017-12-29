@@ -10,6 +10,6 @@ namespace HearthStone_Rip_Off.Contracts
     {
         string CardName { get; }
         uint ManaCost { get; }
-        string ShowInfo();
+        void ShowInfo();
     }
 }
