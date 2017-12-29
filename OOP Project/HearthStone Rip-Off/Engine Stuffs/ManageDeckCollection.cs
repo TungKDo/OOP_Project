@@ -255,9 +255,31 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                     {
                         return new FrostBolt();
                     }
+                case "holysmite":
+                    {
+                        return new HolySmite();
+                    }
+                case "lightningbolt":
+                    {
+                        return new LightningBolt();
+                    }
+                case "meteorShower":
+                    {
+                        return new MeteorShower();
+                    }
+                case "moonfire":
+                    {
+                        return new MoonFire();
+                    }
+                case "shawdowbolt":
+                    {
+                        return new ShadowBolt();
+                    }
                 default:
                     {
-                        return new FrostBolt();
+                        Console.WriteLine("This Card doesn't exist");
+                        ManageDeckCollection();
+                        return new ShadowBolt();
                     }
             }
 

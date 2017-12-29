@@ -23,6 +23,7 @@ namespace HearthStone_Rip_Off
 
         public Player()
         {
+            this.lifePoint = 15;
             this.playerHand = new Hand();
             this.playerDeck = new Deck.Deck();
             this.battleField = new List<ICreature>();
@@ -36,7 +37,7 @@ namespace HearthStone_Rip_Off
             {
                 return manaCrystals;
             }
-            private set
+            set
             {
                 this.manaCrystals = value;
             }
@@ -47,7 +48,7 @@ namespace HearthStone_Rip_Off
             {
                 return maxManaCrystals;
             }
-            private set
+            set
             {
                 this.maxManaCrystals = value;
             }
@@ -70,7 +71,7 @@ namespace HearthStone_Rip_Off
             {
                 return this.playerDeck;
             }
-            protected set
+            set
             {
                 this.playerDeck = value;
             }
@@ -91,19 +92,11 @@ namespace HearthStone_Rip_Off
             }
         }
 
-        public void DrawThreeCards()
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                ICard cardToBeDraw = PlayerDeck.Cards[PlayerDeck.Cards.Count - 1];
-                this.PlayerHand.Add(cardToBeDraw);
-                this.PlayerDeck.Remove(cardToBeDraw);
-            }
-
-        }
         public void DrawACards()
         {
-
+            ICard cardToBeDraw = PlayerDeck.Cards[PlayerDeck.Cards.Count - 1];
+            this.PlayerHand.Add(cardToBeDraw);
+            this.PlayerDeck.Remove(cardToBeDraw);
         }
 
 

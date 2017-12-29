@@ -21,6 +21,10 @@ namespace HearthStone_Rip_Off.Cards
             protected set { this.manaCost = value; }
         }
 
-        public abstract void ShowInfo();
+        public virtual void ShowInfo()
+        {
+
+        }
+
     }
 }

@@ -19,6 +19,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
         {
             //Pregame selection:
 
+            // - Player Choose Decks and the decks are being shuffled 
             Console.WriteLine("Player 1 please choose your deck:");
 
             foreach (string key in deckCollection.MyDeck.Keys)
@@ -26,36 +27,91 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                 Console.WriteLine(key);
             }            
 
-            Deck.Deck player1deck =  deckCollection.MyDeck[Console.ReadLine()]; //Трябва да погледнем как се прави deep copy тук,
-            player1deck.Shuffle();                                            //защото shallow copy ще прецеката колекциите в тестетата
+            Deck.Deck player1Deck =  deckCollection.MyDeck[Console.ReadLine()]; //Трябва да погледнем как се прави deep copy тук,
+            player1Deck.Shuffle();                                            //защото shallow copy ще прецеката колекциите в тестетата
             Console.WriteLine("Player 2 please choose your deck:");
-            Deck.Deck player2deck = deckCollection.MyDeck[Console.ReadLine()];
-            player2deck.Shuffle();
+            Deck.Deck player2Deck = deckCollection.MyDeck[Console.ReadLine()];
+            player2Deck.Shuffle();
+
+            player1.PlayerDeck = player1Deck;
+            player2.PlayerDeck = player2Deck;
+            // - Player Draw Cards 
+            for (int i = 0; i < 3; i++)
+            {
+                player1.DrawACards();
+                player2.DrawACards();
+            }
             
-            
-            
-            player1.DrawThreeCards();
-            player2.DrawThreeCards();
 
             string playerTurn = "P1";
-
             while (true)
             {
                 if(playerTurn == "P1")
                 {
-                    PlayTurn(player1);
+                    Console.WriteLine("Player 2 Turn\n===========================");
+                    StartOfTurn(player1);
+                    PlayTurn(player1, player2);
+                    playerTurn = "P2";
                 }
                 else
                 {
-                    PlayTurn(player2);
-                }
+                    Console.WriteLine("Player 2 Turn\n===========================");
+                    PlayTurn(player2, player1);
+                    playerTurn = "P1";
+                } 
                 
+
             }
         }
 
-        private static void PlayTurn(Player player)
+        private static void StartOfTurn(Player player)
         {
-            //тук ще се случи действието и в края на всеки ход, ще сменим playerTurn на "P2"
+            if (player.MaxManaCrystals <= 10)
+            {
+                player.MaxManaCrystals += 1;
+            }            
+            player.ManaCrystals = player.MaxManaCrystals;
+            player.DrawACards();
+
+            // Foreach that showinfo for all cards in hand
+                
+        }
+
+        private static void PlayTurn(Player player, Player opponent)
+        {
+            Console.WriteLine("1. Play Card");
+            Console.WriteLine("2. Attack opponent's creature with your creature");
+            Console.WriteLine("3. Attack the opponent hero with your creature");
+            Console.WriteLine("8. End Turn");
+
+            string input = Console.ReadLine();
+            while (true)
+            {                
+                switch(input)
+                {
+                    case "1":
+                        {
+                            foreach( Creature
+                        }
+
+                    case "8":
+                        Console.WriteLine("Player ended his turn");
+                        break;
+                }
+                    
+
+            }
+            //1.PlayCard
+            //    - Creature
+            //    - Spell
+            //       - Monster
+            //       - Hero
+            //2.Attack
+            //    - Attack Other Monster
+            //    -Attack Hero
+            //5.End Turn
+
+
         }
     }
 }

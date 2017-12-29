@@ -16,7 +16,7 @@ namespace HearthStone_Rip_Off
         {
             GameEngine.Run();
 
-            
+
 
             //Deck.Deck deck = new Deck.Deck();
 
