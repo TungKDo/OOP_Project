@@ -26,6 +26,11 @@ namespace HearthStone_Rip_Off.Cards.Spells
             { this.damage = value; }
         }
 
+        public override bool IsCreature()
+        {
+            return false;
+        }
+
         public override void ShowInfo()
         {
             StringBuilder str = new StringBuilder();

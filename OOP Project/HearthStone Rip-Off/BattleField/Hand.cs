@@ -23,10 +23,14 @@ namespace HearthStone_Rip_Off.BattleField
                 Console.WriteLine(String.Join(",", card.CardName)); //TODO all cards should have ToString() ovveride
             }
         }
-
-        public ICard PlayCard(int i) //i = index of one of the 3 cards in cardsInHand, 1,2,3
+        
+        public IList<ICard> CardsInHand
         {
-            return this.cardsInHand[i - 1];
+            get
+            {
+                return new List<ICard>(this.cardsInHand);
+            }
+
         }
 
         public void Add(ICard card)

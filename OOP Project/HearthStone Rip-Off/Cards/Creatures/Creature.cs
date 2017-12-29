@@ -57,6 +57,11 @@ namespace HearthStone_Rip_Off.Cards.Creatures
             }
         }
 
+        public override bool IsCreature()
+        {
+            return true;
+        }
+
         public override void ShowInfo()
         {
             StringBuilder str = new StringBuilder();

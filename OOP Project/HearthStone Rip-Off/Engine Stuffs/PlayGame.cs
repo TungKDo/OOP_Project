@@ -1,4 +1,7 @@
-﻿using HearthStone_Rip_Off.Deck;
+﻿using HearthStone_Rip_Off.Cards;
+using HearthStone_Rip_Off.Cards.Creatures;
+using HearthStone_Rip_Off.Contracts;
+using HearthStone_Rip_Off.Deck;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,9 +82,10 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
         private static void PlayTurn(Player player, Player opponent)
         {
-            Console.WriteLine("1. Play Card");
-            Console.WriteLine("2. Attack opponent's creature with your creature");
-            Console.WriteLine("3. Attack the opponent hero with your creature");
+            Console.WriteLine("1. Play a Monster");
+            Console.WriteLine("2. Play a Spell");
+            Console.WriteLine("3. Attack opponent's creature with your creature");
+            Console.WriteLine("4. Attack the opponent hero with your creature");
             Console.WriteLine("8. End Turn");
 
             string input = Console.ReadLine();
@@ -90,9 +94,25 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                 switch(input)
                 {
                     case "1":
+                        foreach(ICard cardName in player.PlayerHand.CardsInHand)
                         {
-                            foreach( Creature
+                            if(cardName.IsCreature())
+                            cardName.ShowInfo();
                         }
+                                                
+
+                        Console.WriteLine("Please enter the name of the creature you would like to play:");
+
+                        string creatureToBePlayed = Console.ReadLine().ToLower();
+
+                        ICard cardToBePlayed = player.PlayerHand.CardsInHand.FirstOrDefault(x => x.CardName.ToLower() == creatureToBePlayed); //Проверка!
+
+
+                        //player.PlayerHand.Remove(cardToBePlayed);
+                        //player.BattleField.Add(cardToBePlayed);
+                        
+                        break;
+
 
                     case "8":
                         Console.WriteLine("Player ended his turn");

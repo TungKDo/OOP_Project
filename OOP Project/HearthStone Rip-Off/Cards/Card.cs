@@ -26,5 +26,7 @@ namespace HearthStone_Rip_Off.Cards
 
         }
 
+        public abstract bool IsCreature();
+
     }
 }

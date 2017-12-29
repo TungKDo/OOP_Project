@@ -17,16 +17,16 @@ namespace HearthStone_Rip_Off
         private int maxManaCrystals;
         private Hand playerHand;
         private Deck.Deck playerDeck;
-        private IList<ICreature> battleField;
+        private IList<ICard> battleField;
 
         
 
         public Player()
         {
             this.lifePoint = 15;
-            this.playerHand = new Hand();
-            this.playerDeck = new Deck.Deck();
-            this.battleField = new List<ICreature>();
+            this.PlayerHand = new Hand();
+            this.PlayerDeck = new Deck.Deck();
+            this.battleField = new List<ICard>();
             this.ManaCrystals = 0;
             this.MaxManaCrystals = 0;
         }
@@ -74,6 +74,18 @@ namespace HearthStone_Rip_Off
             set
             {
                 this.playerDeck = value;
+            }
+        }
+
+        public IList<ICard> BattleField
+        {
+            get
+            {
+                return this.battleField;
+            }
+            set
+            {
+                this.battleField = value;
             }
         }
 
