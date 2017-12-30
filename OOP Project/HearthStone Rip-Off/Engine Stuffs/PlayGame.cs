@@ -45,20 +45,32 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
             {
                 if(playerTurn == "P1")
                 {
-                    Console.WriteLine("Player 2 Turn\n===========================");
+                    Console.WriteLine("Player 1 Turn\n===========================");
                     StartOfTurn(player1);
                     PlayTurn(player1, player2);
                     playerTurn = "P2";
+                    if(player2.LifePoints <= 0)
+                    {
+                        Console.WriteLine("Player 1 Won the game");
+                        break;
+                    }
                 }
                 else
                 {
                     Console.WriteLine("Player 2 Turn\n===========================");
+                    StartOfTurn(player2);
                     PlayTurn(player2, player1);
                     playerTurn = "P1";
+                    if (player2.LifePoints <= 0)
+                    {
+                        Console.WriteLine("Player 2 won the game!");
+                        break;
+                    }
                 } 
                 
 
             }
+            GameEngine.Run();
         }
 
         private static void StartOfTurn(Player player)
@@ -78,7 +90,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                 
         }
 
-        private static void PlayTurn(Player player, Player opponent)
+        private static void PlayTurn(Player player, Player opponent) //Battle Logic
         {
             Console.WriteLine("1. Play a Monster");
             Console.WriteLine("2. Cast a Spell");
@@ -105,9 +117,18 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
                         string creatureName = Console.ReadLine().ToLower();
                         ICard creatureToBePlayed = player.PlayerHand.CardsInHand.FirstOrDefault(x => x.CardName.ToLower() == creatureName); //Проверка!
+                        if(creatureToBePlayed.ManaCost > player.ManaCrystals)
+                        {
+                            Console.WriteLine("Not Enough Mana Crystals");
+                            break;
+                            
+                        }
                         player.PlayerHand.Remove(creatureToBePlayed);
                         player.BattleField.Add(creatureToBePlayed);
+                        player.ManaCrystals -= (int)creatureToBePlayed.ManaCost;
                         break;
+
+
 
                     case "2":
                         Console.WriteLine("Please enter the name of the spell would like to play:");
@@ -119,6 +140,12 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
                         string spellName = Console.ReadLine().ToLower();
                         ISpell spellToBePlayed = (ISpell)player.PlayerHand.CardsInHand.FirstOrDefault(x => x.CardName.ToLower() == spellName);
+                        if(spellToBePlayed.ManaCost > player.ManaCrystals)
+                        {
+                            Console.WriteLine("Not enough mana crystals");
+                            break;
+                        }
+                        player.ManaCrystals -= (int)spellToBePlayed.ManaCost;
                         Console.WriteLine("Target:");
                         Console.WriteLine("1.Opponent's hero");
                         Console.WriteLine("2.Opponent's creature ");
@@ -210,18 +237,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
                 }
                     
-
             }
-            //1.PlayCard
-            //    - Creature
-            //    - Spell
-            //       - Monster
-            //       - Hero
-            //2.Attack
-            //    - Attack Other Monster
-            //    -Attack Hero
-            //5.End Turn
-
 
         }
 

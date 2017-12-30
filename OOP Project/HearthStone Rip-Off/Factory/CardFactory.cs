@@ -2,6 +2,7 @@
 using HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures;
 using HearthStone_Rip_Off.Cards.Spells.List_of_Spells;
 using HearthStone_Rip_Off.Contracts;
+using HearthStone_Rip_Off.Engine_Stuffs;
 using System;
 
 namespace HearthStone_Rip_Off.Factory
@@ -116,6 +117,7 @@ namespace HearthStone_Rip_Off.Factory
                 default:
                     {
                         Console.WriteLine("This Card doesn't exist");
+                        DeckCollectionManagement.ManageDeckCollection();
                         return new ShadowBolt();
                     }
             }
