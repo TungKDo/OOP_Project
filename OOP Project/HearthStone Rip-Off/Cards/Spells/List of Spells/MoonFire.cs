@@ -8,7 +8,7 @@ namespace HearthStone_Rip_Off.Cards.Spells.List_of_Spells
 {
     public class MoonFire : Spell
     {
-        public MoonFire(string cardName = "MoonFire", uint manaCost = 0, uint damage = 1) : base(cardName, manaCost, damage)
+        public MoonFire() : base("MoonFire", 0, 1)
         {
         }
     }

@@ -8,7 +8,7 @@ namespace HearthStone_Rip_Off.Cards.Spells.List_of_Spells
 {
     public class HolySmite : Spell
     {
-        public HolySmite(string cardName = "HolySmite", uint manaCost = 1, uint damage = 2) : base(cardName, manaCost, damage)
+        public HolySmite() : base("HolySmite", 1, 2)
         {
         }
     }

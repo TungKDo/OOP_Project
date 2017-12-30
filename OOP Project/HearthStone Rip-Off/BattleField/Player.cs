@@ -97,9 +97,6 @@ namespace HearthStone_Rip_Off
             }
             set
             {
-                if(value < 1)
-                    Console.WriteLine("Life points must be more than 1.");
-
                 this.lifePoint = value;
             }
         }

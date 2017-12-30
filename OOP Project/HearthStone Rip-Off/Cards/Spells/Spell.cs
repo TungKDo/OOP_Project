@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Cards.Spells
 {
-    public abstract class Spell : Card, ISpell
+    public abstract class Spell : Card, ICard, ISpell
     {
-        private uint damage;
+        private int damage;
 
-        public Spell(string cardName, uint manaCost, uint damage)
+        public Spell(string cardName, uint manaCost, int damage)
         {
             base.CardName = cardName;
             base.ManaCost = manaCost;
             this.Damage = damage;
         }
 
-        public uint Damage
+        public int Damage
         {
             get
             { return this.damage; }

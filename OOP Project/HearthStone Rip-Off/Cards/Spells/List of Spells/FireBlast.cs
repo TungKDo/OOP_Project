@@ -8,7 +8,7 @@ namespace HearthStone_Rip_Off.Cards.Spells.List_of_Spells
 {
     public class FireBlast : Spell
     {
-        public FireBlast(string cardName = "FireBlast", uint manaCost = 7, uint damage = 9) : base(cardName, manaCost, damage)
+        public FireBlast() : base("FireBlast", 7, 9)
         {
         }
     }
