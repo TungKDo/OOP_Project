@@ -1,13 +1,9 @@
-﻿using HearthStone_Rip_Off.Cards.Creatures;
-using HearthStone_Rip_Off.Cards.Creatures.List_of_Creatures;
-using HearthStone_Rip_Off.Cards.Spells.List_of_Spells;
+﻿using HearthStone_Rip_Off.Common;
 using HearthStone_Rip_Off.Contracts;
 using HearthStone_Rip_Off.Deck;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HearthStone_Rip_Off.Factory;
 
 namespace HearthStone_Rip_Off.Engine_Stuffs
 {
@@ -24,6 +20,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
             Console.WriteLine("5. List all cards in a deck");
             Console.WriteLine("6. Back");
             string input = Console.ReadLine();
+            string deckName;
 
             while (true)
             {
@@ -31,25 +28,30 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                 {
                     case "1":
                         Console.WriteLine("Please type in the deck name");
-                        string deckName1 = Console.ReadLine();
 
-                        CheckIsNullOrEmpty(deckName1);
+                        deckName = Console.ReadLine().ToLower();
 
-                        deckCollection.CreateDeck(deckName1);
+                        if (!Check.StringIsNullOrEmpty(deckName))
+                        {
+                            deckCollection.CreateDeck(deckName);
+                        }
 
                         ManageDeckCollection();
+
                         break;
 
                     case "2":
                         Console.WriteLine("Please type in the deck name");
 
-                        string deckName2 = Console.ReadLine();
+                        deckName = Console.ReadLine();
 
-                        CheckIsNullOrEmpty(deckName2);
-
-                        CheckIfDeckExists(deckName2);
-
-                        deckCollection.RemoveDeck(deckName2);
+                        if (!Check.StringIsNullOrEmpty(deckName))
+                        {
+                            if (Check.IfDeckExists(deckCollection, deckName))
+                            {
+                                deckCollection.RemoveDeck(deckName);
+                            }
+                        }
 
                         ManageDeckCollection();
                         break;
@@ -62,21 +64,22 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                             Console.WriteLine(key);
                         }
 
-                        string deckName3 = Console.ReadLine();
+                        deckName = Console.ReadLine();
 
-                        CheckIsNullOrEmpty(deckName3);
-
-                        CheckIfDeckExists(deckName3);
-
-                        CheckIfDeckIsFull(deckName3);
-
-                        Console.WriteLine("Please enter the name of the cards that you want to add:");
-                        Console.WriteLine("When done, please type exit ");
+                        if (!Check.StringIsNullOrEmpty(deckName))
+                        {
+                            if (Check.IfDeckExists(deckCollection, deckName))
+                            {
+                                if (!Check.IfDeckIsFull(deckCollection, deckName))
+                                {
+                                    Console.WriteLine("Please enter the name of the cards that you want to add:");
+                                    Console.WriteLine("When done, please type exit ");
+                                }
+                            }
+                        }
 
                         while (true)
                         {
-                            CheckIfDeckIsFull(deckName3);
-
                             string cardToBeAdded = Console.ReadLine();
 
                             if (cardToBeAdded == "exit")
@@ -84,7 +87,10 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                                 break;
                             }
 
-                            deckCollection.MyDeck[deckName3].Add(CardFactory(cardToBeAdded));
+                            if (!Check.IfDeckIsFull(deckCollection, deckName))
+                            {
+                                deckCollection.MyDeck[deckName].Add(CardFactory.CreateCard(cardToBeAdded));
+                            }
                         }
 
                         ManageDeckCollection();
@@ -93,21 +99,21 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                     case "4":
                         Console.WriteLine("Please enter the name of the deck you would like to remove cards from:");
 
-                        foreach (string key in deckCollection.MyDeck.Keys)
+                        Print.PrintDeckCollectionKeys(deckCollection);
+
+                        deckName = Console.ReadLine();
+
+                        if (!Check.StringIsNullOrEmpty(deckName))
                         {
-                            Console.WriteLine(key);
+                            if (Check.IfDeckExists(deckCollection, deckName))
+                            {
+                                if (!Check.IfDeckIsEmpty(deckCollection, deckName))
+                                {
+                                    Console.WriteLine("Please enter the name of the cards that you want to remove:");
+                                    Console.WriteLine("When done, please type exit ");
+                                }
+                            }
                         }
-
-                        string deckName4 = Console.ReadLine();
-
-                        CheckIsNullOrEmpty(deckName4);
-
-                        CheckIfDeckExists(deckName4);
-
-                        CheckIfDeckHaveCards(deckName4);
-
-                        Console.WriteLine("Please enter the name of the cards that you want to remove:");
-                        Console.WriteLine("When done, please type exit ");
 
                         while (true)
                         {
@@ -118,7 +124,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                                 break;
                             }
 
-                            ICard card = deckCollection.MyDeck[deckName4].Cards.FirstOrDefault(x => x.CardName.ToLower() == cardToBeRemoved);
+                            ICard card = deckCollection.MyDeck[deckName].Cards.FirstOrDefault(x => x.CardName.ToLower() == cardToBeRemoved);
 
                             if (card == null)
                             {
@@ -126,7 +132,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                                 continue;
                             }
 
-                            deckCollection.MyDeck[deckName4].Remove(card);
+                            deckCollection.MyDeck[deckName].Remove(card);
                         }
 
                         ManageDeckCollection();
@@ -135,23 +141,23 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                     case "5":
                         Console.WriteLine("Please enter the name of the deck you would like to list all cards of:");
 
-                        foreach (string key in deckCollection.MyDeck.Keys)
+                        Print.PrintDeckCollectionKeys(deckCollection);
+
+                        deckName = Console.ReadLine();
+
+                        if (!Check.StringIsNullOrEmpty(deckName))
                         {
-                            Console.WriteLine(key);
-                        }
-
-                        string deckName5 = Console.ReadLine();
-
-                        CheckIsNullOrEmpty(deckName5);
-
-                        CheckIfDeckExists(deckName5);
-
-                        CheckIfDeckHaveCards(deckName5);
-
-                        foreach (ICard card in deckCollection.MyDeck[deckName5].Cards)
-                        {
-                            Console.WriteLine(card.CardName);
-                            Console.WriteLine("===========================");
+                            if (Check.IfDeckExists(deckCollection, deckName))
+                            {
+                                if (!Check.IfDeckIsEmpty(deckCollection, deckName))
+                                {
+                                    foreach (ICard card in deckCollection.MyDeck[deckName].Cards)
+                                    {
+                                        Console.WriteLine(card.CardName);
+                                        Console.WriteLine("===========================");
+                                    }
+                                }
+                            }
                         }
 
                         ManageDeckCollection();
@@ -165,158 +171,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                         Console.WriteLine("Invalid input.");
                         ManageDeckCollection();
                         break;
-
                 }
-
-            }
-        }
-        private static ICard CardFactory(string cardToBeAdded)
-        {
-            cardToBeAdded = cardToBeAdded.ToLower();
-            switch (cardToBeAdded)
-            {
-                case "aldorpeacekeeper":
-                    {
-                        return new AldorPeacekeeper();
-                    }
-                case "alexstrasza":
-                    {
-                        return new Alexstrasza();
-                    }
-                case "ancientbrewmaster":
-                    {
-                        return new AncientBrewmaster();
-                    }
-                case "ancientmage":
-                    {
-                        return new AncientMage();
-                    }
-                case "archmageantonidas":
-                    {
-                        return new ArchmageAntonidas();
-                    }
-                case "auchenaisoulpriest":
-                    {
-                        return new AuchenaiSoulpriest();
-                    }
-                case "cenarius":
-                    {
-                        return new Cenarius();
-                    }
-                case "chillwindyeti":
-                    {
-                        return new ChillWindYeti();
-                    }
-                case "deathwing":
-                    {
-                        return new Deathwing();
-                    }
-                case "doomguard":
-                    {
-                        return new Doomguard();
-                    }
-                case "druidoftheclaw":
-                    {
-                        return new DruidOfTheClaw();
-                    }
-                case "emperorcobra":
-                    {
-                        return new EmperorCobra();
-                    }
-                case "manawyrm":
-                    {
-                        return new ManaWyrm();
-                    }
-                case "ogre":
-                    {
-                        return new Ogre();
-                    }
-                case "swampooze":
-                    {
-                        return new SwampOoze();
-                    }
-                case "tiger":
-                    {
-                        return new Tiger();
-                    }
-                case "waterelemental":
-                    {
-                        return new WaterElemental();
-                    }
-                case "fireball":
-                    {
-                        return new FireBall();
-                    }
-                case "fireblast":
-                    {
-                        return new FireBlast();
-                    }
-                case "frostbolt":
-                    {
-                        return new FrostBolt();
-                    }
-                case "holysmite":
-                    {
-                        return new HolySmite();
-                    }
-                case "lightningbolt":
-                    {
-                        return new LightningBolt();
-                    }
-                case "meteorShower":
-                    {
-                        return new MeteorShower();
-                    }
-                case "moonfire":
-                    {
-                        return new MoonFire();
-                    }
-                case "shawdowbolt":
-                    {
-                        return new ShadowBolt();
-                    }
-                default:
-                    {
-                        Console.WriteLine("This Card doesn't exist");
-                        ManageDeckCollection();
-                        return new ShadowBolt();
-                    }
-            }
-
-        }
-
-        public static void CheckIsNullOrEmpty(string input)
-        {
-            if (string.IsNullOrEmpty(input))
-            {
-                Console.WriteLine("The input cannot be empty.");
-                ManageDeckCollection(); //tung ако измислиш нещо по умно ЗАПОВЯДАЙ
-            }
-        }
-
-        public static void CheckIfDeckIsFull(string deckName)
-        {
-            if (deckCollection.MyDeck[deckName].Cards.Count >= 10)
-            {
-                Console.WriteLine("The curent deck is full.");
-            }
-        }
-
-        public static void CheckIfDeckExists(string deckName)
-        {
-            if (!deckCollection.MyDeck.ContainsKey(deckName))
-            {
-                Console.WriteLine("The deck doesn't exist.");
-                ManageDeckCollection();
-            }
-        }
-
-        public static void CheckIfDeckHaveCards(string deckName)
-        {
-            if (deckCollection.MyDeck[deckName].Cards.Count == 0)
-            {
-                Console.WriteLine("The deck is empty");
-                ManageDeckCollection();
             }
         }
     }

@@ -101,6 +101,14 @@ namespace HearthStone_Rip_Off
             }
         }
 
+        public void PrintCardsOnBattleField()
+        {
+            foreach (var card in this.battleField)
+            {
+                card.ShowInfo();
+            }
+        }
+
         public void DrawACards()
         {
             ICard cardToBeDraw = PlayerDeck.Cards[PlayerDeck.Cards.Count - 1];

@@ -1,13 +1,7 @@
-﻿using HearthStone_Rip_Off.Cards;
-using HearthStone_Rip_Off.Cards.Creatures;
-using HearthStone_Rip_Off.Contracts;
+﻿using HearthStone_Rip_Off.Contracts;
 using HearthStone_Rip_Off.Deck;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Engine_Stuffs
 {
@@ -103,10 +97,12 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                 {
                     case "1":
                         Console.WriteLine("Please enter the name of the creature you would like to play:");
-                        foreach (ICard cardName in player.PlayerHand.CardsInHand)
-                        {
-                            if(cardName.IsCreature()) cardName.ShowInfo();                        } 
-                        
+                        //foreach (ICard cardName in player.PlayerHand.CardsInHand)
+                        //{
+                        //    if(cardName.IsCreature()) cardName.ShowInfo();
+                        //} 
+                        Print.PrintCreatures(player.PlayerHand.CardsInHand);
+
                         string creatureName = Console.ReadLine().ToLower();
                         ICard creatureToBePlayed = player.PlayerHand.CardsInHand.FirstOrDefault(x => x.CardName.ToLower() == creatureName); //Проверка!
                         player.PlayerHand.Remove(creatureToBePlayed);
@@ -115,10 +111,12 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
                     case "2":
                         Console.WriteLine("Please enter the name of the spell would like to play:");
-                        foreach (ICard cardName in player.PlayerHand.CardsInHand)
-                        {
-                            if (cardName.IsCreature() == false) cardName.ShowInfo();
-                        }                        
+                        //foreach (ICard cardName in player.PlayerHand.CardsInHand)
+                        //{
+                        //    if (cardName.IsCreature() == false) cardName.ShowInfo();
+                        //}                        
+                        Print.PrintSpells(player.PlayerHand.CardsInHand);
+
                         string spellName = Console.ReadLine().ToLower();
                         ISpell spellToBePlayed = (ISpell)player.PlayerHand.CardsInHand.FirstOrDefault(x => x.CardName.ToLower() == spellName);
                         Console.WriteLine("Target:");
@@ -134,10 +132,12 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                             case "2":
                                 if(opponent.BattleField.Count > 0)
                                 {
-                                    foreach (ICard cardName in opponent.BattleField)
-                                    {
-                                        cardName.ShowInfo();
-                                    }
+                                    //foreach (ICard cardName in opponent.BattleField)
+                                    //{
+                                    //    cardName.ShowInfo();
+                                    //}
+                                    Print.PrintCards(opponent.BattleField);
+
                                     Console.WriteLine("Please enter the name of the creature you would like to target:");
                                     string creatureName2 = Console.ReadLine().ToLower();
                                     ICreature creatureToBeTargeted = (ICreature)opponent.BattleField.FirstOrDefault(x => x.CardName.ToLower() == creatureName2);
@@ -165,18 +165,22 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                         else
                         {
                             Console.WriteLine("Please enter the name of the creature you would like to attack with:");
-                            foreach (ICard cardName in player.BattleField)
-                            {
-                                if (cardName.IsCreature() == true) cardName.ShowInfo();
-                            }
+                            //foreach (ICard cardName in player.BattleField)
+                            //{
+                            //    if (cardName.IsCreature() == true) cardName.ShowInfo();
+                            //}
+                            Print.PrintCreatures(player.BattleField);
+
                             string creatureName3 = Console.ReadLine().ToLower();
                             ICreature myCreature = (ICreature)player.BattleField.FirstOrDefault(x => x.CardName.ToLower() == creatureName3);
 
                             Console.WriteLine("Please enter the name of the creature you would like to attack:");
-                            foreach (ICard cardName in opponent.BattleField)
-                            {
-                                if (cardName.IsCreature() == true) cardName.ShowInfo();
-                            }
+                            //foreach (ICard cardName in opponent.BattleField)
+                            //{
+                            //    if (cardName.IsCreature() == true) cardName.ShowInfo();
+                            //}
+                            Print.PrintCreatures(opponent.BattleField);
+
                             creatureName3 = Console.ReadLine().ToLower();
                             ICreature oppoCreature = (ICreature)opponent.BattleField.FirstOrDefault(x => x.CardName.ToLower() == creatureName3);
                             BattleBetween2Creatures(myCreature, oppoCreature);
@@ -193,10 +197,12 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
                     case "4":
                         Console.WriteLine("Please enter the name of the creature you would like to attack with:");
-                        foreach (ICard cardName in player.BattleField)
-                        {
-                            if (cardName.IsCreature() == true) cardName.ShowInfo();
-                        }
+                        //foreach (ICard cardName in player.BattleField)
+                        //{
+                        //    if (cardName.IsCreature() == true) cardName.ShowInfo();
+                        //}
+                        Print.PrintCreatures(player.BattleField);
+
                         string creatureName4 = Console.ReadLine();
                         ICreature myCreature2 = (ICreature)player.BattleField.FirstOrDefault(x => x.CardName.ToLower() == creatureName4);
                         CreatureAttackHero(myCreature2, opponent);

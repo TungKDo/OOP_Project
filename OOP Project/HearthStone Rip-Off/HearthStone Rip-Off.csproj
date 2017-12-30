@@ -75,6 +75,8 @@
     <Compile Include="Cards\Spells\List of Spells\MoonFire.cs" />
     <Compile Include="Cards\Spells\List of Spells\ShadowBolt.cs" />
     <Compile Include="Cards\Spells\Spell.cs" />
+    <Compile Include="Common\ExtensionCardCollection.cs" />
+    <Compile Include="Common\Check.cs" />
     <Compile Include="Contracts\ICard.cs" />
     <Compile Include="Contracts\ICreature.cs" />
     <Compile Include="Contracts\IDeckFactory.cs" />
@@ -85,13 +87,17 @@
     <Compile Include="BattleField\Player.cs" />
     <Compile Include="Engine Stuffs\ManageDeckCollection.cs" />
     <Compile Include="Engine Stuffs\PlayGame.cs" />
+    <Compile Include="Common\Print.cs" />
     <Compile Include="Engine Stuffs\Program.cs" />
+    <Compile Include="Factory\CardFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

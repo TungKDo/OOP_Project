@@ -18,12 +18,13 @@ namespace HearthStone_Rip_Off.BattleField
 
         public void PrintHand()
         {
-            foreach (var card in cardsInHand)
+            foreach (var card in this.cardsInHand)
             {
-                Console.WriteLine(String.Join(",", card.CardName)); //TODO all cards should have ToString() ovveride
+                card.ShowInfo(); 
             }
         }
-        
+
+
         public IList<ICard> CardsInHand
         {
             get
