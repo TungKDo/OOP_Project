@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Contracts
 {
-    interface IDeckFactory
+    interface IPlayer
     {
-        List<ICard> CreateNewDeck();
+        int Lifepoints { get; set; }
+        int ManaCrystals { get; set; }
+        int MaxManaCrystals { get; set; }
     }
 }

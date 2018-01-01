@@ -18,8 +18,7 @@ namespace HearthStone_Rip_Off
         
         public static void Run()
         {
-            Console.WriteLine("Welcome to BattleArena");
-            Console.WriteLine("Choose an item from the menu below");
+            Console.WriteLine("Welcome to Hearthstone Rip Off");
             Console.WriteLine("1. New Game");
             Console.WriteLine("2. Deck Collection");
             Console.WriteLine("3. Credits");

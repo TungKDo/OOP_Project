@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off
 {
-    public class Player
+    public class Player : IPlayer
     {
-        private int lifePoint;
+        private int lifepoints;
         private int manaCrystals;
         private int maxManaCrystals;
         private Hand playerHand;
@@ -23,14 +23,24 @@ namespace HearthStone_Rip_Off
 
         public Player()
         {
-            this.lifePoint = 15;
+            this.lifepoints = 15;
             this.PlayerHand = new Hand();
             this.PlayerDeck = new Deck.Deck();
             this.battleField = new List<ICard>();
             this.ManaCrystals = 0;
             this.MaxManaCrystals = 0;
         }
-
+        public int Lifepoints
+        {
+            get
+            {
+                return this.lifepoints;
+            }
+            set
+            {
+                this.lifepoints = value;
+            }
+        }
         public int ManaCrystals
         {
             get
@@ -53,6 +63,7 @@ namespace HearthStone_Rip_Off
                 this.maxManaCrystals = value;
             }
         }
+
         public Hand PlayerHand
         {
             get
@@ -89,17 +100,7 @@ namespace HearthStone_Rip_Off
             }
         }
 
-        public int LifePoints
-        {
-            get
-            {
-                return this.lifePoint;
-            }
-            set
-            {
-                this.lifePoint = value;
-            }
-        }
+        
 
         public void PrintCardsOnBattleField()
         {

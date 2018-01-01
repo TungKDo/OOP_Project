@@ -31,22 +31,26 @@ namespace HearthStone_Rip_Off.BattleField
             {
                 return new List<ICard>(this.cardsInHand);
             }
+            protected set
+            {
+                this.cardsInHand = value;
+            }
 
         }
 
         public void Add(ICard card)
         {            
-            this.cardsInHand.Add(card);
+            this.CardsInHand.Add(card);
         }
 
         public void Remove(ICard card)
         {
-            this.cardsInHand.Remove(card);
+            this.CardsInHand.Remove(card);
         }
 
         public IEnumerator GetEnumerator()
         {
-            return this.cardsInHand.GetEnumerator();
+            return this.CardsInHand.GetEnumerator();
         }
     }
 }

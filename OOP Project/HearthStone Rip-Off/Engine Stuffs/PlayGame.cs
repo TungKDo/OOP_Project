@@ -49,7 +49,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                     StartOfTurn(player1);
                     PlayTurn(player1, player2);
                     playerTurn = "P2";
-                    if(player2.LifePoints <= 0)
+                    if(player2.Lifepoints <= 0)
                     {
                         Console.WriteLine("Player 1 Won the game");
                         break;
@@ -61,7 +61,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                     StartOfTurn(player2);
                     PlayTurn(player2, player1);
                     playerTurn = "P1";
-                    if (player2.LifePoints <= 0)
+                    if (player2.Lifepoints <= 0)
                     {
                         Console.WriteLine("Player 2 won the game!");
                         break;
@@ -95,7 +95,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
             Console.WriteLine("1. Play a Monster");
             Console.WriteLine("2. Cast a Spell");
             Console.WriteLine("3. Attack opponent's creature with your creature");
-            Console.WriteLine("4. Attack the opponent hero with your creature");
+            Console.WriteLine("4. Attack the opponent's hero with your creature");
             Console.WriteLine("8. End Turn");
             
             while (true)
@@ -109,19 +109,13 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                 {
                     case "1":
                         Console.WriteLine("Please enter the name of the creature you would like to play:");
-                        //foreach (ICard cardName in player.PlayerHand.CardsInHand)
-                        //{
-                        //    if(cardName.IsCreature()) cardName.ShowInfo();
-                        //} 
                         Print.PrintCreatures(player.PlayerHand.CardsInHand);
-
                         string creatureName = Console.ReadLine().ToLower();
                         ICard creatureToBePlayed = player.PlayerHand.CardsInHand.FirstOrDefault(x => x.CardName.ToLower() == creatureName); //Проверка!
                         if(creatureToBePlayed.ManaCost > player.ManaCrystals)
                         {
                             Console.WriteLine("Not Enough Mana Crystals");
-                            break;
-                            
+                            break;                            
                         }
                         player.PlayerHand.Remove(creatureToBePlayed);
                         player.BattleField.Add(creatureToBePlayed);
@@ -131,13 +125,8 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
 
                     case "2":
-                        Console.WriteLine("Please enter the name of the spell would like to play:");
-                        //foreach (ICard cardName in player.PlayerHand.CardsInHand)
-                        //{
-                        //    if (cardName.IsCreature() == false) cardName.ShowInfo();
-                        //}                        
+                        Console.WriteLine("Please enter the name of the spell would like to play:");                      
                         Print.PrintSpells(player.PlayerHand.CardsInHand);
-
                         string spellName = Console.ReadLine().ToLower();
                         ISpell spellToBePlayed = (ISpell)player.PlayerHand.CardsInHand.FirstOrDefault(x => x.CardName.ToLower() == spellName);
                         if(spellToBePlayed.ManaCost > player.ManaCrystals)
@@ -192,25 +181,16 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                         else
                         {
                             Console.WriteLine("Please enter the name of the creature you would like to attack with:");
-                            //foreach (ICard cardName in player.BattleField)
-                            //{
-                            //    if (cardName.IsCreature() == true) cardName.ShowInfo();
-                            //}
                             Print.PrintCreatures(player.BattleField);
-
                             string creatureName3 = Console.ReadLine().ToLower();
                             ICreature myCreature = (ICreature)player.BattleField.FirstOrDefault(x => x.CardName.ToLower() == creatureName3);
 
                             Console.WriteLine("Please enter the name of the creature you would like to attack:");
-                            //foreach (ICard cardName in opponent.BattleField)
-                            //{
-                            //    if (cardName.IsCreature() == true) cardName.ShowInfo();
-                            //}
                             Print.PrintCreatures(opponent.BattleField);
-
                             creatureName3 = Console.ReadLine().ToLower();
                             ICreature oppoCreature = (ICreature)opponent.BattleField.FirstOrDefault(x => x.CardName.ToLower() == creatureName3);
                             BattleBetween2Creatures(myCreature, oppoCreature);
+
                             if (myCreature.HealthPoints < 1)
                             {
                                 player.BattleField.Remove(myCreature);
@@ -224,12 +204,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
                     case "4":
                         Console.WriteLine("Please enter the name of the creature you would like to attack with:");
-                        //foreach (ICard cardName in player.BattleField)
-                        //{
-                        //    if (cardName.IsCreature() == true) cardName.ShowInfo();
-                        //}
                         Print.PrintCreatures(player.BattleField);
-
                         string creatureName4 = Console.ReadLine();
                         ICreature myCreature2 = (ICreature)player.BattleField.FirstOrDefault(x => x.CardName.ToLower() == creatureName4);
                         CreatureAttackHero(myCreature2, opponent);
@@ -243,7 +218,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
         private static void CreatureAttackHero(ICreature myCreature, Player opponent)
         {
-            opponent.LifePoints -= myCreature.AttackPoints;
+            opponent.Lifepoints -= myCreature.AttackPoints;
         }
 
         private static void BattleBetween2Creatures(ICreature myCreature, ICreature opponentCreature)
@@ -261,7 +236,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
         private static void CastSpellOnHero(ISpell spellToBePlayed, Player opponent)
         {
             int damageToBeInflicted = spellToBePlayed.Damage;
-            opponent.LifePoints -= damageToBeInflicted;
+            opponent.Lifepoints -= damageToBeInflicted;
         }
     }
 }

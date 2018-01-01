@@ -80,6 +80,7 @@
     <Compile Include="Contracts\ICard.cs" />
     <Compile Include="Contracts\ICreature.cs" />
     <Compile Include="Contracts\IDeckFactory.cs" />
+    <Compile Include="Contracts\IPlayer.cs" />
     <Compile Include="Contracts\ISpell.cs" />
     <Compile Include="Deck\Deck.cs" />
     <Compile Include="Deck\DeckCollection.cs" />
