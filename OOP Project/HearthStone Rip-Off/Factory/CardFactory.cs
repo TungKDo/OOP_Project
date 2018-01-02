@@ -102,7 +102,7 @@ namespace HearthStone_Rip_Off.Factory
                     {
                         return new LightningBolt();
                     }
-                case "meteorShower":
+                case "meteorshower":
                     {
                         return new MeteorShower();
                     }
@@ -110,7 +110,7 @@ namespace HearthStone_Rip_Off.Factory
                     {
                         return new MoonFire();
                     }
-                case "shawdowbolt":
+                case "shadowbolt":
                     {
                         return new ShadowBolt();
                     }
