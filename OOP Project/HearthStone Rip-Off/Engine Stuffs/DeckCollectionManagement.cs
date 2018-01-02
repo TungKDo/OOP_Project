@@ -13,7 +13,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
         public static void ManageDeckCollection()
         {
-            Console.WriteLine("1. Create Deck");
+            Console.WriteLine("\n1. Create Deck");
             Console.WriteLine("2. Delete Deck");
             Console.WriteLine("3. Add cards to an existing Deck");
             Console.WriteLine("4. Remove cards to an existing Deck");
@@ -66,17 +66,13 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
                         deckName = Console.ReadLine();
 
-                        if (!Check.StringIsNullOrEmpty(deckName))
+                        if (!Check.StringIsNullOrEmpty(deckName) && !Check.IfDeckExists(deckCollection, deckName))
                         {
-                            if (Check.IfDeckExists(deckCollection, deckName))
-                            {
-                                if (!Check.IfDeckIsFull(deckCollection, deckName))
-                                {
-                                    Console.WriteLine("Please enter the name of the cards that you want to add:");
-                                    Console.WriteLine("When done, please type exit ");
-                                }
-                            }
+                            ManageDeckCollection();
                         }
+
+                        Console.WriteLine("Please enter the name of the cards that you want to add:");
+                        Console.WriteLine("When done, please type exit ");
 
                         while (true)
                         {
@@ -85,6 +81,14 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                             if (cardToBeAdded == "exit")
                             {
                                 break;
+                            }
+                            foreach (ICard card in deckCollection.MyDeck[deckName])
+                            {
+                                if (card.CardName.ToLower() == cardToBeAdded)
+                                {
+                                    Console.WriteLine("You already have this card in this deck.");
+                                    ManageDeckCollection();
+                                }
                             }
 
                             if (!Check.IfDeckIsFull(deckCollection, deckName))

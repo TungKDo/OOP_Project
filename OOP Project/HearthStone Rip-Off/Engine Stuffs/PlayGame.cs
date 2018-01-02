@@ -14,6 +14,11 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
         public static void NewGame()
         {
+            if (DeckCollection.Instance.MyDeck.Count == 0)
+            {
+                Console.WriteLine("Please create a deck before starting a game.");
+                GameEngine.Run();
+            }
             //Pregame selection:
 
             // - Player Choose Decks and the decks are being shuffled 
@@ -45,8 +50,9 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
             {
                 if(playerTurn == "P1")
                 {
-                    Console.WriteLine("Player 1 Turn\n===========================");
+                    Console.WriteLine("Player 1 Turn");
                     StartOfTurn(player1);
+                    Console.WriteLine("===========================");
                     PlayTurn(player1, player2);
                     playerTurn = "P2";
                     if(player2.Lifepoints <= 0)
@@ -54,11 +60,13 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                         Console.WriteLine("Player 1 Won the game");
                         break;
                     }
+                    
                 }
                 else
                 {
-                    Console.WriteLine("Player 2 Turn\n===========================");
+                    Console.WriteLine("Player 2 Turn");
                     StartOfTurn(player2);
+                    Console.WriteLine("===========================");
                     PlayTurn(player2, player1);
                     playerTurn = "P1";
                     if (player2.Lifepoints <= 0)
@@ -67,15 +75,13 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                         break;
                     }
                 } 
-                
-
             }
             GameEngine.Run();
         }
 
         private static void StartOfTurn(Player player)
         {
-            if (player.MaxManaCrystals <= 10)
+            if (player.MaxManaCrystals < 10)
             {
                 player.MaxManaCrystals += 1;
             }            
@@ -84,7 +90,8 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
             {
                 player.DrawACards();
             }
-            
+
+            Console.WriteLine($"The player has {player.ManaCrystals} mana crystals this turn");
 
             // Foreach that showinfo for all cards in hand
                 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HearthStone_Rip_Off.BattleField;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,7 @@ namespace HearthStone_Rip_Off.Contracts
         int Lifepoints { get; set; }
         int ManaCrystals { get; set; }
         int MaxManaCrystals { get; set; }
+        Hand PlayerHand { get; }
+        Deck.Deck PlayerDeck { get; }
     }
 }

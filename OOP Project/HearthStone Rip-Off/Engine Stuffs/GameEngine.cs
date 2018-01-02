@@ -12,13 +12,12 @@ namespace HearthStone_Rip_Off
 {
     public static class GameEngine
     {
-        private const int InitialPlayerLifePoints = 15;
         private static DeckCollection deckCollection = DeckCollection.Instance;
         
         
         public static void Run()
         {
-            Console.WriteLine("Welcome to Hearthstone Rip Off");
+            Console.WriteLine("\nWelcome to Hearthstone Rip Off");
             Console.WriteLine("1. New Game");
             Console.WriteLine("2. Deck Collection");
             Console.WriteLine("3. Credits");
