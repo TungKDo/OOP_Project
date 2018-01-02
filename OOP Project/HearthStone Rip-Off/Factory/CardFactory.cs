@@ -102,7 +102,7 @@ namespace HearthStone_Rip_Off.Factory
                     {
                         return new LightningBolt();
                     }
-                case "meteorShower":
+                case "meteorshower":
                     {
                         return new MeteorShower();
                     }

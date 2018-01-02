@@ -40,17 +40,17 @@ namespace HearthStone_Rip_Off.BattleField
 
         public void Add(ICard card)
         {            
-            this.CardsInHand.Add(card);
+            this.cardsInHand.Add(card);
         }
 
         public void Remove(ICard card)
         {
-            this.CardsInHand.Remove(card);
+            this.cardsInHand.Remove(card);
         }
 
         public IEnumerator GetEnumerator()
         {
-            return this.CardsInHand.GetEnumerator();
+            return this.cardsInHand.GetEnumerator();
         }
     }
 }
