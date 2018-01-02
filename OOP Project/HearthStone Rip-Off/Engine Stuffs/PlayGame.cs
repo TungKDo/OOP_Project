@@ -16,7 +16,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
         {
             if (DeckCollection.Instance.MyDeck.Count == 0)
             {
-                Console.WriteLine("Please create a deck before starting a game.");
+                Console.WriteLine("\nPlease create a deck before starting a game.");
                 GameEngine.Run();
             }
             //Pregame selection:
@@ -93,7 +93,6 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
             Console.WriteLine($"The player has {player.ManaCrystals} mana crystals this turn");
 
-            // Foreach that showinfo for all cards in hand
                 
         }
 
@@ -155,10 +154,6 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                             case "2":
                                 if(opponent.BattleField.Count > 0)
                                 {
-                                    //foreach (ICard cardName in opponent.BattleField)
-                                    //{
-                                    //    cardName.ShowInfo();
-                                    //}
                                     Print.PrintCards(opponent.BattleField);
 
                                     Console.WriteLine("Please enter the name of the creature you would like to target:");

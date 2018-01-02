@@ -16,14 +16,6 @@ namespace HearthStone_Rip_Off
         static void Main(string[] args)
         {
             GameEngine.Run();
-
-
-
-            //Deck.Deck deck = new Deck.Deck();
-
-            //deck.Add(new ManaWyrm());
-
-            //deck.Shuffle();
         }
     }
 }

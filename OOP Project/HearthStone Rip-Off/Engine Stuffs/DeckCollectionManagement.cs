@@ -107,17 +107,13 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
 
                         deckName = Console.ReadLine();
 
-                        if (!Check.StringIsNullOrEmpty(deckName))
+                        if (!Check.StringIsNullOrEmpty(deckName) && !Check.IfDeckExists(deckCollection, deckName))
                         {
-                            if (Check.IfDeckExists(deckCollection, deckName))
-                            {
-                                if (!Check.IfDeckIsEmpty(deckCollection, deckName))
-                                {
-                                    Console.WriteLine("Please enter the name of the cards that you want to remove:");
-                                    Console.WriteLine("When done, please type exit ");
-                                }
-                            }
+                            ManageDeckCollection();
                         }
+
+                        Console.WriteLine("Please enter the name of the cards that you want to remove:");
+                        Console.WriteLine("When done, please type exit ");
 
                         while (true)
                         {

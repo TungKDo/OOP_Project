@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HearthStone_Rip_Off.Cards.Creatures
 {
-    public class Creature : Card, ICard, ICreature
+    public abstract class Creature : Card, ICard, ICreature
     {
         
         private int attackPoints;

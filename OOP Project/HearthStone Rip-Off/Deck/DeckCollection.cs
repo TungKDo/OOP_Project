@@ -44,48 +44,6 @@ namespace HearthStone_Rip_Off.Deck
             myDecks.Remove(deckName);
         }
 
-
-        //private const int countOfDecks = 3;
-
-        //private Random random;
-        //private Deck deck;
-        //private IList<Deck> allDecks;
-
-        //public DeckCollection()
-        //{
-        //    this.deck = new Deck();
-        //    this.deck.InitializeAllCards(deck);
-        //}
-
-        //public Deck GetRandomDeck()
-        //{
-        //    CreateDecks();
-
-        //    int randomIndex = random.Next(0, allDecks.Count);
-
-        //    return allDecks[randomIndex];
-        //}
-
-        //private void CreateDecks()
-        //{
-        //    this.allDecks = new List<Deck>();
-
-        //    PopulateWithDecks();
-        //}
-
-        //private void PopulateWithDecks()
-        //{
-        //    Deck newDeck = new Deck();
-
-        //    int countOfAllCards = deck.Cards.Count;
-
-        //    int portionToTake = countOfAllCards % countOfDecks;
-
-        //    for (int i = 0; i < countOfAllCards; i += portionToTake)
-        //    {
-        //        newDeck.Cards = deck.Cards.Skip(i).Take(portionToTake).ToList();
-        //        this.allDecks.Add(newDeck); //yield
-        //    }
-        //}
+        
     }
 }
