@@ -110,7 +110,7 @@ namespace HearthStone_Rip_Off.Factory
                     {
                         return new MoonFire();
                     }
-                case "shawdowbolt":
+                case "shadowbolt":
                     {
                         return new ShadowBolt();
                     }

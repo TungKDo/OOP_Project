@@ -69,7 +69,7 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                     Console.WriteLine("===========================");
                     PlayTurn(player2, player1);
                     playerTurn = "P1";
-                    if (player2.Lifepoints <= 0)
+                    if (player1.Lifepoints <= 0)
                     {
                         Console.WriteLine("Player 2 won the game!");
                         break;
@@ -207,11 +207,10 @@ namespace HearthStone_Rip_Off.Engine_Stuffs
                     case "4":
                         Console.WriteLine("Please enter the name of the creature you would like to attack with:");
                         Print.PrintCreatures(player.BattleField);
-                        string creatureName4 = Console.ReadLine();
+                        string creatureName4 = Console.ReadLine().ToLower();
                         ICreature myCreature2 = (ICreature)player.BattleField.FirstOrDefault(x => x.CardName.ToLower() == creatureName4);
-                        CreatureAttackHero(myCreature2, opponent);
+                        CreatureAttackHero(myCreature2, opponent);                        
                         break;
-
                 }
                     
             }
